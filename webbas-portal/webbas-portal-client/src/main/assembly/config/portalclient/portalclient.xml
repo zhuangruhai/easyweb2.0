@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portalclient>
+	<portal>
+			<domain>http://localhost/admin</domain>
+			<out-domain>http://localhost/admin</out-domain>
+			<portalservice-url>/auth</portalservice-url>
+		</portal>
+</portalclient>
