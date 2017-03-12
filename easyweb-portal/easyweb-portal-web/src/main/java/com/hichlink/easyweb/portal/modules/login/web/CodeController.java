@@ -16,28 +16,26 @@ import com.hichlink.easyweb.portal.common.util.CheckCodeUtil;
 
 @Controller
 @RequestMapping("/code")
-public class CodeController { 
- 
-    @RequestMapping("/getCode.ajax") 
-    public void getCode(HttpServletRequest req, HttpServletResponse resp) 
-            throws IOException { 
- 
-        HttpSession session = req.getSession(); 
+public class CodeController {
 
- 
-        BufferedImage image = CheckCodeUtil.createImage(session);
-        		
-        // 禁止图像缓存。  
-        resp.setHeader("Pragma", "no-cache"); 
-        resp.setHeader("Cache-Control", "no-cache"); 
-        resp.setDateHeader("Expires", 0); 
- 
-        resp.setContentType("image/jpeg"); 
- 
-        // 将图像输出到Servlet输出流中。  
-        ServletOutputStream sos = resp.getOutputStream(); 
-        ImageIO.write(image, "jpeg", sos); 
-        sos.close(); 
-    } 
- 
-} 
+	@RequestMapping("/getCode.ajax")
+	public void getCode(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
+		HttpSession session = req.getSession();
+
+		BufferedImage image = CheckCodeUtil.createImage(session);
+
+		// 禁止图像缓存。
+		resp.setHeader("Pragma", "no-cache");
+		resp.setHeader("Cache-Control", "no-cache");
+		resp.setDateHeader("Expires", 0);
+
+		resp.setContentType("image/jpeg");
+
+		// 将图像输出到Servlet输出流中。
+		ServletOutputStream sos = resp.getOutputStream();
+		ImageIO.write(image, "jpeg", sos);
+		sos.close();
+	}
+
+}

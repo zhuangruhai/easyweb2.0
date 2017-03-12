@@ -16,37 +16,29 @@ import org.springframework.stereotype.Service;
 import com.hichlink.easyweb.portal.common.cache.AuthCache;
 import com.hichlink.easyweb.portal.common.dao.OperationAddressDao;
 import com.hichlink.easyweb.portal.common.dao.OperationDao;
-import com.hichlink.easyweb.portal.common.dao.ResourceDao;
 import com.hichlink.easyweb.portal.common.entity.Operation;
 import com.hichlink.easyweb.portal.common.entity.OperationAddress;
 import com.hichlink.easyweb.portal.common.service.AuthService;
 
 @Service("authService")
 public class AuthServiceImpl implements AuthService {
-	private static final Logger logger = LoggerFactory
-			.getLogger(AuthServiceImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(AuthServiceImpl.class);
 	@Autowired
 	private OperationDao operationDao;
 
 	@Autowired
 	private OperationAddressDao operationAddressDao;
 
-	@Autowired
-	private ResourceDao resourceDao;
-
 	private static final String REG_SEP = "{*}";
 
-	public Map<String, String> listAddressUrlByLoginName(String loginName)
-			throws Exception {
+	public Map<String, String> listAddressUrlByLoginName(String loginName) throws Exception {
 
-		List<OperationAddress> list = operationAddressDao
-				.listOperationAddressByLoginName(loginName);
+		List<OperationAddress> list = operationAddressDao.listOperationAddressByLoginName(loginName);
 
 		return createMap(list);
 	}
 
-	public boolean authorizeSuccess(String addressUrl,
-			Map<String, String> urlMap) {
+	public boolean authorizeSuccess(String addressUrl, Map<String, String> urlMap) {
 		String strs[] = addressUrl.split("\\?");
 
 		// 找不到对应的url，鉴权失败
@@ -84,8 +76,7 @@ public class AuthServiceImpl implements AuthService {
 
 		initCache();
 
-		Map<String, String> excludeAuthMap = AuthCache.getCache()
-				.getUnauthMap();
+		Map<String, String> excludeAuthMap = AuthCache.getCache().getUnauthMap();
 		if (excludeAuthMap != null) {
 			return isContains(excludeAuthMap.keySet(), addressUrl);
 		}
@@ -102,8 +93,7 @@ public class AuthServiceImpl implements AuthService {
 	public boolean notNeedAuthAfterLogin(String addressUrl) {
 		initCache();
 
-		Map<String, String> loginAuthMap = AuthCache.getCache()
-				.getLoginAuthMap();
+		Map<String, String> loginAuthMap = AuthCache.getCache().getLoginAuthMap();
 
 		if (loginAuthMap != null) {
 			return isContains(loginAuthMap.keySet(), addressUrl);
@@ -125,8 +115,7 @@ public class AuthServiceImpl implements AuthService {
 		String addressParam = strs.length > 1 ? strs[1] : null;
 
 		// 用户级鉴权url, 每个url可能对应有多条记录
-		Map<String, List<OperationAddress>> authMap = AuthCache.getCache()
-				.getAuthMap();
+		Map<String, List<OperationAddress>> authMap = AuthCache.getCache().getAuthMap();
 
 		// 如果没有对应的url，返回成功鉴权失败
 		StringBuilder sb = new StringBuilder();
@@ -151,10 +140,8 @@ public class AuthServiceImpl implements AuthService {
 		for (OperationAddress address : neededAuthList) {
 			// 如果找到用户的权限对应的url,再比对参数,
 			// 如果所有的url和参数匹配不成功，则鉴权失败
-			logger.debug(address.getResourceId() + "-"
-					+ address.getOperationKey());
-			if (userOperationList.contains(address.getResourceId() + "-"
-					+ address.getOperationKey())) {
+			logger.debug(address.getResourceId() + "-" + address.getOperationKey());
+			if (userOperationList.contains(address.getResourceId() + "-" + address.getOperationKey())) {
 				// 没有参数, 直接返回
 				if (addressParam == null || "".equals(addressParam)) {
 					return true;
@@ -200,23 +187,18 @@ public class AuthServiceImpl implements AuthService {
 	private synchronized void initCache() {
 
 		if (AuthCache.getCache().getUnauthMap() == null) {
-			List<OperationAddress> unAuthList = operationAddressDao
-					.listOperationAddressByAuthType("UNAUTH");
+			List<OperationAddress> unAuthList = operationAddressDao.listOperationAddressByAuthType("UNAUTH");
 
-			List<OperationAddress> loginAuthList = operationAddressDao
-					.listOperationAddressByAuthType("LOGIN_AUTH");
+			List<OperationAddress> loginAuthList = operationAddressDao.listOperationAddressByAuthType("LOGIN_AUTH");
 
-			List<OperationAddress> authList = operationAddressDao
-					.listOperationAddressByAuthType("AUTH");
+			List<OperationAddress> authList = operationAddressDao.listOperationAddressByAuthType("AUTH");
 
-			AuthCache.getCache().init(createMap(unAuthList),
-					createMap(loginAuthList), createAuthMap(authList));
+			AuthCache.getCache().init(createMap(unAuthList), createMap(loginAuthList), createAuthMap(authList));
 		}
 	}
 
 	private Set<String> getResourceAndOperationKey(Long staffId) {
-		List<Operation> list = operationDao
-				.listResourceOperationByStaffId(staffId);
+		List<Operation> list = operationDao.listResourceOperationByStaffId(staffId);
 
 		Set<String> set = new HashSet<String>();
 
@@ -228,8 +210,7 @@ public class AuthServiceImpl implements AuthService {
 	}
 
 	private Set<String> getResourceKeyAndOperationKey(Long staffId) {
-		List<Operation> list = operationDao
-				.listResourceKeyAndOperationKeyStaffId(staffId);
+		List<Operation> list = operationDao.listResourceKeyAndOperationKeyStaffId(staffId);
 
 		Set<String> set = new HashSet<String>();
 
@@ -244,15 +225,13 @@ public class AuthServiceImpl implements AuthService {
 
 		for (OperationAddress address : list) {
 
-			urlMap.put(address.getOperationAddressUrl(),
-					buildParamString(address));
+			urlMap.put(address.getOperationAddressUrl(), buildParamString(address));
 		}
 
 		return urlMap;
 	}
 
-	private Map<String, List<OperationAddress>> createAuthMap(
-			List<OperationAddress> list) {
+	private Map<String, List<OperationAddress>> createAuthMap(List<OperationAddress> list) {
 		Map<String, List<OperationAddress>> authMap = new HashMap<String, List<OperationAddress>>();
 
 		List<OperationAddress> tempList = null;
@@ -276,25 +255,21 @@ public class AuthServiceImpl implements AuthService {
 		StringBuffer paramStr = new StringBuffer();
 
 		if (!StringUtils.isEmpty(address.getParameterName1())) {
-			paramStr.append(address.getParameterName1()).append("=")
-					.append(address.getParameterValue1());
+			paramStr.append(address.getParameterName1()).append("=").append(address.getParameterValue1());
 		}
 
 		if (!StringUtils.isEmpty(address.getParameterName2())) {
-			paramStr.append("&").append(address.getParameterName2())
-					.append("=").append(address.getParameterValue2());
+			paramStr.append("&").append(address.getParameterName2()).append("=").append(address.getParameterValue2());
 		}
 
 		if (!StringUtils.isEmpty(address.getParameterName3())) {
-			paramStr.append("&").append(address.getParameterName3())
-					.append("=").append(address.getParameterValue3());
+			paramStr.append("&").append(address.getParameterName3()).append("=").append(address.getParameterValue3());
 		}
 
 		return paramStr.toString();
 	}
 
-	public List<Map<String, Boolean>> authorize(Long staffId, String[] resKeys,
-			String[] operKeys) {
+	public List<Map<String, Boolean>> authorize(Long staffId, String[] resKeys, String[] operKeys) {
 		List<Map<String, Boolean>> results = new ArrayList<Map<String, Boolean>>();
 		// 找到用户所有的操作权限
 		Set<String> userOperationList = getResourceKeyAndOperationKey(staffId);
@@ -322,8 +297,7 @@ public class AuthServiceImpl implements AuthService {
 		} else if (len == 2) {
 			int start = str.indexOf(regs[0]);
 			int end = str.lastIndexOf(regs[1]);
-			if (start + regs[0].length() <= end && str.startsWith(regs[0])
-					&& str.endsWith(regs[1]))
+			if (start + regs[0].length() <= end && str.startsWith(regs[0]) && str.endsWith(regs[1]))
 				return true;
 			else
 				return false;

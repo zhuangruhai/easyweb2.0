@@ -34,16 +34,14 @@ import com.hichlink.easyweb.portal.common.util.StaffUtil;
 @Controller
 @RequestMapping("/pendTaskSetting")
 public class PendTaskSettingController extends BaseController {
-	private static final Logger logger = LoggerFactory
-			.getLogger(PendTaskSettingController.class);
+	private static final Logger logger = LoggerFactory.getLogger(PendTaskSettingController.class);
 	@Autowired
 	@Qualifier("pendTaskSettingService")
 	private PendTaskSettingService pendTaskSettingService;
 
 	@RequestMapping(value = "/update.ajax")
 	@ResponseBody
-	public Map<String, Object> update(
-			@ModelAttribute("pendTaskSetting") PendTaskSetting data) {
+	public Map<String, Object> update(@ModelAttribute("pendTaskSetting") PendTaskSetting data) {
 		try {
 			pendTaskSettingService.saveAndUpdate(data);
 		} catch (Exception e) {
@@ -58,8 +56,7 @@ public class PendTaskSettingController extends BaseController {
 	public Map<String, Object> get() {
 		try {
 			Staff staff = StaffUtil.getLoginStaff();
-			PendTaskSetting data = pendTaskSettingService.get(staff
-					.getStaffId().toString());
+			PendTaskSetting data = pendTaskSettingService.get(staff.getStaffId().toString());
 			Map<String, Object> result = new HashMap<String, Object>();
 			if (null != data) {
 				if (isEmpty(data.getSendemail())) {
@@ -69,7 +66,7 @@ public class PendTaskSettingController extends BaseController {
 					data.setSendsms(PendTaskSetting.NO);
 				}
 			}
-			if (null != staff){
+			if (null != staff) {
 				staff.setEmail(StringTools.null2Str(staff.getEmail()));
 				staff.setMobile(StringTools.null2Str(staff.getMobile()));
 			}

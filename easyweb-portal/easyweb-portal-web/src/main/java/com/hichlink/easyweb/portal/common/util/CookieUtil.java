@@ -14,9 +14,11 @@ import org.slf4j.LoggerFactory;
 
 public class CookieUtil {
 	private static final Logger LOG = LoggerFactory.getLogger(CookieUtil.class);
-	private CookieUtil(){
-		
+
+	private CookieUtil() {
+
 	}
+
 	public static String getCookie(HttpServletRequest req, String name) {
 		Cookie[] cookies = req.getCookies();
 
@@ -36,9 +38,8 @@ public class CookieUtil {
 		return null;
 	}
 
-	public static void setCookie(HttpServletRequest request,
-			HttpServletResponse response, String cookieName, String cookieValue)
-			throws ServletException {
+	public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
+			String cookieValue) throws ServletException {
 		Cookie privacy;
 		try {
 			privacy = new Cookie(cookieName, URLEncoder.encode(cookieValue, "UTF-8"));
@@ -46,16 +47,15 @@ public class CookieUtil {
 			privacy.setPath("/");
 			response.addCookie(privacy);
 		} catch (UnsupportedEncodingException e) {
-			LOG.error(e.getMessage(),e);
+			LOG.error(e.getMessage(), e);
 			throw new ServletException(e);
 		}
 		// privacy.setSecure(true);
-		
 
 	}
-	public static void setCookie(HttpServletRequest request,
-			HttpServletResponse response, String cookieName, String cookieValue,int maxAge)
-			throws ServletException {
+
+	public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
+			String cookieValue, int maxAge) throws ServletException {
 		Cookie privacy;
 		try {
 			privacy = new Cookie(cookieName, URLEncoder.encode(cookieValue, "UTF-8"));
@@ -64,14 +64,13 @@ public class CookieUtil {
 			privacy.setPath("/");
 			response.addCookie(privacy);
 		} catch (UnsupportedEncodingException e) {
-			LOG.error(e.getMessage(),e);
+			LOG.error(e.getMessage(), e);
 			throw new ServletException(e);
 		}
-		
 
 	}
-	public static void delCookie(HttpServletRequest request,
-			HttpServletResponse response, String cookieName)
+
+	public static void delCookie(HttpServletRequest request, HttpServletResponse response, String cookieName)
 			throws ServletException {
 		Cookie privacy = new Cookie(cookieName, null);
 		// privacy.setSecure(true);

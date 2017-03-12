@@ -1,21 +1,21 @@
 package com.hichlink.easyweb.portal.common.tree;
 
-public class MenuTreeNode extends TreeNode{
+public class MenuTreeNode extends TreeNode {
 
 	private String menuKey;
 	private String icon;
 	private String url;
-	
-	public MenuTreeNode(){
-		
+
+	public MenuTreeNode() {
+
 	}
-	
-//	public MenuTreeNode(String id, String parentId, String text,String url){
-//		
-//		super(id, parentId, text);
-//		
-//		this.url = url;
-//	}
+
+	// public MenuTreeNode(String id, String parentId, String text,String url){
+	//
+	// super(id, parentId, text);
+	//
+	// this.url = url;
+	// }
 
 	public String getUrl() {
 		return url;

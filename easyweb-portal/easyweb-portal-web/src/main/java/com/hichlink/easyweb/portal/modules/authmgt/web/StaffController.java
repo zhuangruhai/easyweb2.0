@@ -31,8 +31,7 @@ import com.hichlink.easyweb.portal.common.util.StaffUtil;
 @Controller
 @RequestMapping("/staff")
 public class StaffController extends BaseController {
-	private static final Logger logger = LoggerFactory
-			.getLogger(StaffController.class);
+	private static final Logger logger = LoggerFactory.getLogger(StaffController.class);
 
 	@Autowired
 	@Qualifier("staffService")
@@ -49,8 +48,7 @@ public class StaffController extends BaseController {
 
 	@RequestMapping(value = "/createStaff.ajax", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, ? extends Object> createStaff(Staff staff)
-			throws Exception {
+	public Map<String, ? extends Object> createStaff(Staff staff) throws Exception {
 		try {
 			if (isNotEmpty(staff.getStaffId())) {
 				staff.setLastUpdateDate(new Date());
@@ -65,8 +63,7 @@ public class StaffController extends BaseController {
 						staff.setCreateUser("nouser");
 					} else {
 						// staff.setDepartmentId(StaffUtil.getLoginStaff().getDepartmentId());
-						staff.setCreateUser(StaffUtil.getLoginStaff()
-								.getLoginName());
+						staff.setCreateUser(StaffUtil.getLoginStaff().getLoginName());
 					}
 				}
 				staffService.createStaff(staff);
@@ -144,10 +141,8 @@ public class StaffController extends BaseController {
 	public Map<String, ? extends Object> listStaff(Page<Staff> page) {
 
 		try {
-			page.getParams().put(
-					"departmentIds",
-					transferList2QueryStr(departmentService
-							.findMyDepartmentAndChildrenDeptIds()));
+			page.getParams().put("departmentIds",
+					transferList2QueryStr(departmentService.findMyDepartmentAndChildrenDeptIds()));
 			return page(staffService.listStaff(page));
 
 		} catch (Exception e) {
@@ -170,9 +165,7 @@ public class StaffController extends BaseController {
 	private Map<String, Object> packStaffOthers(Staff staff) throws Exception {
 		Map<String, Object> others = new HashMap<String, Object>();
 		if (isNotEmpty(staff.getDepartmentId())) {
-			List<Department> list = departmentService
-					.listPathFromRootToCurrentDepartmentId(staff
-							.getDepartmentId());
+			List<Department> list = departmentService.listPathFromRootToCurrentDepartmentId(staff.getDepartmentId());
 			if (null != list && list.size() > 0) {
 				StringBuilder sb = new StringBuilder();
 				for (int i = list.size() - 1; i >= 0; i--) {
@@ -200,8 +193,7 @@ public class StaffController extends BaseController {
 
 	@RequestMapping(value = "/lockStaff.ajax", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, ? extends Object> lockStaff(
-			@RequestParam String operation, @RequestParam Long staffId) {
+	public Map<String, ? extends Object> lockStaff(@RequestParam String operation, @RequestParam Long staffId) {
 
 		try {
 			if (isEmpty(operation) || isEmpty(staffId)) {
@@ -229,8 +221,7 @@ public class StaffController extends BaseController {
 
 	@RequestMapping(value = "/updateStaffRole.ajax", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, ? extends Object> updateStaffRole(
-			@RequestParam String operation, @RequestParam Long staffId,
+	public Map<String, ? extends Object> updateStaffRole(@RequestParam String operation, @RequestParam Long staffId,
 			@RequestParam Long roleId) {
 
 		try {
@@ -252,10 +243,9 @@ public class StaffController extends BaseController {
 				Staff staff = StaffUtil.getLoginStaff();
 
 				// System.out.println("staffId:" + staff.getStaffId() +
-				// "  roleKey:" + role.getRoleKey());
+				// " roleKey:" + role.getRoleKey());
 
-				if (staffId.equals(staff.getStaffId())
-						&& "1001".equals(role.getRoleKey())) {
+				if (staffId.equals(staff.getStaffId()) && "1001".equals(role.getRoleKey())) {
 					throw new Exception("超级管理员不能删除自己拥有的系统管理角色");
 				}
 				staffService.deleteStaffRole(staffId, roleId);
@@ -311,6 +301,7 @@ public class StaffController extends BaseController {
 
 		return "true";
 	}
+
 	@RequestMapping(value = "/checkStaffMobile.ajax")
 	@ResponseBody
 	public String checkStaffMobile(String mobile) {
@@ -332,6 +323,7 @@ public class StaffController extends BaseController {
 		}
 		return "true";
 	}
+
 	@RequestMapping(value = "/checkStaffEmail.ajax")
 	@ResponseBody
 	public String checkStaffEmail(String email) {
@@ -353,6 +345,7 @@ public class StaffController extends BaseController {
 		}
 		return "true";
 	}
+
 	@RequestMapping(value = "/findLoginStaff.ajax")
 	@ResponseBody
 	public Map<String, ? extends Object> findLoginStaff() throws Exception {
@@ -361,8 +354,7 @@ public class StaffController extends BaseController {
 			if (staff == null) {
 				throw new Exception("用户没有登录");
 			}
-			Staff staff2 = staffService.findStaffByLoginName(staff
-					.getLoginName());
+			Staff staff2 = staffService.findStaffByLoginName(staff.getLoginName());
 			staff2.setOthers(packStaffOthers(staff2));
 			return success(staff2);
 		} catch (Exception e) {
@@ -373,8 +365,7 @@ public class StaffController extends BaseController {
 
 	@RequestMapping(value = "/changePwd.ajax")
 	@ResponseBody
-	public Map<String, ? extends Object> changePwd(String oldPassword,
-			String newPassword) throws Exception {
+	public Map<String, ? extends Object> changePwd(String oldPassword, String newPassword) throws Exception {
 		try {
 			Staff staff = StaffUtil.getLoginStaff();
 			if (staff == null) {
@@ -385,8 +376,7 @@ public class StaffController extends BaseController {
 			}
 			String oldPasswordDecrypt = RSAUtil.decryptString(oldPassword);
 			String newPasswordDecrypt = RSAUtil.decryptString(newPassword);
-			staffService.changePassword(staff.getLoginName(),
-					oldPasswordDecrypt, newPasswordDecrypt);
+			staffService.changePassword(staff.getLoginName(), oldPasswordDecrypt, newPasswordDecrypt);
 			return success("修改成功");
 		} catch (Exception e) {
 			logger.error("获取登录用户信息出错=>", e);
@@ -396,8 +386,7 @@ public class StaffController extends BaseController {
 
 	@RequestMapping(value = "/resetPwd.ajax")
 	@ResponseBody
-	public Map<String, ? extends Object> resetPwd(String loginName,
-			String password) throws Exception {
+	public Map<String, ? extends Object> resetPwd(String loginName, String password) throws Exception {
 		try {
 			if (isEmpty(password)) {
 				throw new IllegalArgumentException("新密码没有设置！");
@@ -413,15 +402,13 @@ public class StaffController extends BaseController {
 
 	@RequestMapping(value = "/updateStaff.ajax", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, ? extends Object> updateStaff(Staff staff)
-			throws Exception {
+	public Map<String, ? extends Object> updateStaff(Staff staff) throws Exception {
 		try {
 
 			if (isEmpty(staff.getLoginName())) {
 				throw new Exception("参数错误");
 			}
-			Staff staff2 = staffService.findStaffByLoginName(staff
-					.getLoginName());
+			Staff staff2 = staffService.findStaffByLoginName(staff.getLoginName());
 			staff2.setRealName(staff.getRealName());
 			staff2.setSex(staff.getSex());
 			staff2.setMobile(staff.getMobile());
@@ -440,8 +427,7 @@ public class StaffController extends BaseController {
 
 	@RequestMapping(value = "/updateStaffDepartment.ajax", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, ? extends Object> updateStaffDepartment(
-			Long departmentId, String staffIds) throws Exception {
+	public Map<String, ? extends Object> updateStaffDepartment(Long departmentId, String staffIds) throws Exception {
 		try {
 
 			if (isEmpty(departmentId)) {
@@ -457,11 +443,9 @@ public class StaffController extends BaseController {
 
 	@RequestMapping(value = "/listRoleByStaffIds.ajax", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, ? extends Object> listRoleByStaffIds(Long departmentId,
-			String staffIds) throws Exception {
+	public Map<String, ? extends Object> listRoleByStaffIds(Long departmentId, String staffIds) throws Exception {
 		try {
-			return success(staffService.listRoleByStaffIds(departmentId,
-					staffIds));
+			return success(staffService.listRoleByStaffIds(departmentId, staffIds));
 		} catch (Exception e) {
 			logger.error("添加用户到组织出错=>", e);
 			return fail(e.getMessage());
@@ -470,16 +454,14 @@ public class StaffController extends BaseController {
 
 	@RequestMapping(value = "/updateStaffRolesDepartment.ajax", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, ? extends Object> updateStaffRolesDepartment(
-			Long departmentId, String staffIds, String staffIdRoles)
-			throws Exception {
+	public Map<String, ? extends Object> updateStaffRolesDepartment(Long departmentId, String staffIds,
+			String staffIdRoles) throws Exception {
 		try {
 
 			if (isEmpty(departmentId) || isEmpty(staffIds)) {
 				throw new Exception("参数错误");
 			}
-			staffService.updateStaffRolesDepartment(departmentId, staffIds,
-					staffIdRoles);
+			staffService.updateStaffRolesDepartment(departmentId, staffIds, staffIdRoles);
 			return success("修改成功");
 		} catch (Exception e) {
 			logger.error("添加用户到组织出错=>", e);

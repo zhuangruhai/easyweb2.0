@@ -75,18 +75,18 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(getDataSource());
 		bean.setConfigLocation(new ClassPathResource("mybatis/mybatis-config.xml"));
-		
+
 		// 分页插件
 		PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
 
 		// 添加插件
 		bean.setPlugins(new Interceptor[] { paginationInterceptor });
 		ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        try {
-            bean.setMapperLocations(resolver.getResources("classpath:com/hichlink/easyweb/portal/*/*/mysql/*.xml"));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+		try {
+			bean.setMapperLocations(resolver.getResources("classpath:com/hichlink/easyweb/portal/*/*/mysql/*.xml"));
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 		try {
 			return bean.getObject();
 		} catch (Exception e) {

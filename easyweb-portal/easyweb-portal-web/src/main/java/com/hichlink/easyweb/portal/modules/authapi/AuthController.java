@@ -42,8 +42,7 @@ public class AuthController extends BaseController {
 
 	@RequestMapping(value = "/pageAuth.ajax")
 	@ResponseBody
-	public void pageAuth(HttpServletRequest request,
-			HttpServletResponse response, String resKeys, String operKeys)
+	public void pageAuth(HttpServletRequest request, HttpServletResponse response, String resKeys, String operKeys)
 			throws Exception {
 		Map<String, Object> modelMap = new HashMap<String, Object>(2);
 		try {
@@ -52,10 +51,7 @@ public class AuthController extends BaseController {
 				throw new RuntimeException("用户未登录,无法得到登录用户信息");
 			}
 			checkArgumentValid(resKeys, operKeys);
-			modelMap.put(
-					"data",
-					authService.authorize(staff.getStaffId(),
-							resKeys.split(","), operKeys.split(",")));
+			modelMap.put("data", authService.authorize(staff.getStaffId(), resKeys.split(","), operKeys.split(",")));
 			modelMap.put("success", true);
 		} catch (Exception e) {
 			logger.error("签权出错", e);
@@ -65,24 +61,23 @@ public class AuthController extends BaseController {
 		super.outputMatch(request, response, JSON.toJSONString(modelMap));
 	}
 
-
 	@RequestMapping(value = "/ifmStyle.ajax")
-	public void ifmStyle(HttpServletRequest request,
-			HttpServletResponse response,IfmStyle ifmStyle,String rtnName,String ticket) throws Exception {
+	public void ifmStyle(HttpServletRequest request, HttpServletResponse response, IfmStyle ifmStyle, String rtnName,
+			String ticket) throws Exception {
 		Map<String, Object> modelMap = new HashMap<String, Object>(2);
 		try {
 			IfmStyle style = null;
-			if (isNotEmpty(rtnName)){
-				String ifmStyleStr = CookieUtil.getCookie(request,"admin-ifm-style"); 
-				if (isNotEmpty(ifmStyleStr)){
+			if (isNotEmpty(rtnName)) {
+				String ifmStyleStr = CookieUtil.getCookie(request, "admin-ifm-style");
+				if (isNotEmpty(ifmStyleStr)) {
 					ifmStyleStr = URLDecoder.decode(ifmStyleStr, "UTF-8");
 					String[] ifmStyleStrs = ifmStyleStr.split("&");
 					style = new IfmStyle();
-					for (String param : ifmStyleStrs){
+					for (String param : ifmStyleStrs) {
 						String[] params = param.split("=");
-						if (params.length == 2){
+						if (params.length == 2) {
 							Field field = style.getClass().getDeclaredField(params[0]);
-							if (null != field){
+							if (null != field) {
 								field.setAccessible(true);
 								field.set(field, params[1]);
 							}
@@ -106,8 +101,7 @@ public class AuthController extends BaseController {
 		}
 		String[] resKeysArray = resKeys.split(",");
 		String[] operKeysArray = operKeys.split(",");
-		if (resKeysArray.length == 0
-				|| resKeysArray.length != operKeysArray.length) {
+		if (resKeysArray.length == 0 || resKeysArray.length != operKeysArray.length) {
 			throw new IllegalArgumentException("resKey,operKey不能为空并且必须成对出现");
 		}
 	}

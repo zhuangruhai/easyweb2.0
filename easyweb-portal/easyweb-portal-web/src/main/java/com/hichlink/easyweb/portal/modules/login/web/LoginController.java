@@ -34,12 +34,12 @@ import com.hichlink.easyweb.portal.common.util.CheckCodeUtil;
 import com.hichlink.easyweb.portal.common.util.CookieUtil;
 import com.hichlink.easyweb.portal.common.util.RSAUtil;
 import com.hichlink.easyweb.portal.common.util.StaffUtil;
+
 @Controller
 @RequestMapping("/portal")
 public class LoginController extends BaseController {
 
-	private static final Logger LOG = LoggerFactory
-			.getLogger(LoginController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
 
 	private static final String LOGIN_STAFF_TMP = "LOGIN_STAFF_TMP";
 	@Autowired
@@ -48,17 +48,15 @@ public class LoginController extends BaseController {
 	@Autowired
 	@Qualifier("staffService")
 	private StaffService staffService;
-	
+
 	@Autowired
 	@Qualifier("departmentService")
 	private DepartmentService departmentService;
+
 	@RequestMapping(value = "/login.ajax", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, ? extends Object> login(
-			HttpServletRequest request,
-			HttpServletResponse response,
-			@RequestParam String loginName,
-			@RequestParam String password,
+	public Map<String, ? extends Object> login(HttpServletRequest request, HttpServletResponse response,
+			@RequestParam String loginName, @RequestParam String password,
 			@RequestParam(value = "checkCode", required = false) String checkCode,
 			@RequestParam(value = "isAuto", required = false) String isAuto) {
 
@@ -72,8 +70,7 @@ public class LoginController extends BaseController {
 				throw new Exception("验证码为空");
 			}
 
-			if (Config.getInstance().isCheckCodeOn()
-					&& !CheckCodeUtil.check(getSession(), checkCode)) {
+			if (Config.getInstance().isCheckCodeOn() && !CheckCodeUtil.check(getSession(), checkCode)) {
 				throw new Exception("验证码不正确");
 			}
 
@@ -81,26 +78,24 @@ public class LoginController extends BaseController {
 			String pwd = RSAUtil.decryptString(password);
 
 			loginService.login(loginName, pwd, getSession());
-			CookieUtil.setCookie(request, response, TICKET_COOKIE_NAME,
-					getSession().getId());
-			if (isNotEmpty(isAuto) && "true".equalsIgnoreCase(isAuto)){
-				CookieUtil.setCookie(request, response, COOKIE_VALID_USERNAME,
-						loginName,COOKIE_VALID_MAXAGE);
-				CookieUtil.setCookie(request, response, COOKIE_VALID_PASSWD,
-						password,COOKIE_VALID_MAXAGE);
+			CookieUtil.setCookie(request, response, TICKET_COOKIE_NAME, getSession().getId());
+			if (isNotEmpty(isAuto) && "true".equalsIgnoreCase(isAuto)) {
+				CookieUtil.setCookie(request, response, COOKIE_VALID_USERNAME, loginName, COOKIE_VALID_MAXAGE);
+				CookieUtil.setCookie(request, response, COOKIE_VALID_PASSWD, password, COOKIE_VALID_MAXAGE);
 			}
-			Map<String,Object> result = new HashMap<String,Object>();
-			if (Config.getInstance().isContractAgreementOn()){
-				Staff staff = (Staff)getSession().getAttribute(LoginService.LOGIN_STAFF);
+			Map<String, Object> result = new HashMap<String, Object>();
+			if (Config.getInstance().isContractAgreementOn()) {
+				Staff staff = (Staff) getSession().getAttribute(LoginService.LOGIN_STAFF);
 				Department department = null;
-				if (null != staff.getDepartmentId()){
+				if (null != staff.getDepartmentId()) {
 					department = departmentService.findDepartment(staff.getDepartmentId());
 					result.put("department", department);
 				}
 				List<StaffExtendProperty> list = staffService.listStaffExtendProperties(staff.getStaffId());
 				result.put("staffExtendProperty", list);
-				if ( (null != department && "SP".equals(department.getDomain())) &&!loginService.isReadContractAgreement(list)){
-					getSession().setAttribute(LOGIN_STAFF_TMP,staff);
+				if ((null != department && "SP".equals(department.getDomain()))
+						&& !loginService.isReadContractAgreement(list)) {
+					getSession().setAttribute(LOGIN_STAFF_TMP, staff);
 					getSession().removeAttribute(LoginService.LOGIN_STAFF);
 				}
 			}
@@ -110,10 +105,10 @@ public class LoginController extends BaseController {
 			return fail(e.getMessage());
 		}
 	}
+
 	@RequestMapping(value = "/logout.ajax", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, ? extends Object> logout(HttpServletRequest request,
-			HttpServletResponse response) {
+	public Map<String, ? extends Object> logout(HttpServletRequest request, HttpServletResponse response) {
 
 		try {
 
@@ -128,18 +123,18 @@ public class LoginController extends BaseController {
 		}
 	}
 
-	@RequestMapping(value = "/readContractAgreement.ajax" , method = RequestMethod.POST)
+	@RequestMapping(value = "/readContractAgreement.ajax", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, ? extends Object> readContractAgreement() {
 		try {
-			Staff staff =(Staff)getSession().getAttribute(LOGIN_STAFF_TMP);
+			Staff staff = (Staff) getSession().getAttribute(LOGIN_STAFF_TMP);
 
 			if (staff == null) {
 				throw new Exception("用户没有登录");
 			}
 			StaffExtendProperty staffExtendProperty = loginService.setReadContractAgreement(staff);
 			LOG.debug("用户[" + staff.toString() + "]同意了合作协议");
-			getSession().setAttribute(LoginService.LOGIN_STAFF,staff);
+			getSession().setAttribute(LoginService.LOGIN_STAFF, staff);
 			getSession().removeAttribute(LOGIN_STAFF_TMP);
 			return success(staffExtendProperty);
 		} catch (Exception e) {
@@ -147,23 +142,24 @@ public class LoginController extends BaseController {
 			return fail(e.getMessage());
 		}
 	}
+
 	@RequestMapping(value = "/logintest.ajax", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, ? extends Object> logintest() {
-		
+
 		try {
-			
+
 			Staff staff = StaffUtil.getLoginStaff();
-			
+
 			if (staff == null) {
 				throw new Exception("用户没有登录");
 			}
-			
+
 			return success("用户[" + staff.getLoginName() + "]已经登录");
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
 			return fail(e.getMessage());
 		}
 	}
-	
+
 }

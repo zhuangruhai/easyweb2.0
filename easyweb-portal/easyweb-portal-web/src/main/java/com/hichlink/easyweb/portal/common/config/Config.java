@@ -10,13 +10,17 @@ public class Config {
 	@Value("${sys.isCheckCodeOn}")
 	private String isCheckCodeOn;
 	private static Config config = null;
-	private Config(){}
-	public static Config getInstance(){
-		if (null == config){
+
+	private Config() {
+	}
+
+	public static Config getInstance() {
+		if (null == config) {
 			config = new Config();
 		}
 		return config;
 	}
+
 	/**
 	 * 得到登陆前后首页各省定制的系统名称展示的title
 	 * 

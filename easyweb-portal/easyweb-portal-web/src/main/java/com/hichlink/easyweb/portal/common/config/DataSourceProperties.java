@@ -4,18 +4,19 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 /**
- * ClassName: DataSourceProperties 
+ * ClassName: DataSourceProperties
+ * 
  * @Description: 数据库配置项
  * @author guocp
  * @date 2016年7月25日
  *
- * =================================================================================================
- *     Task ID			  Date			     Author		      Description
- * ----------------+----------------+-------------------+-------------------------------------------
+ *       =================================================================================================
+ *       Task ID Date Author Description
+ *       ----------------+----------------+-------------------+-------------------------------------------
  *
  */
 @Service
-@ConfigurationProperties(prefix="spring.datasource")
+@ConfigurationProperties(prefix = "spring.datasource")
 public class DataSourceProperties {
 
 	public static final String PREFIX = "spring.datasource";
@@ -51,7 +52,8 @@ public class DataSourceProperties {
 	}
 
 	/**
-	 * @param driverClass the driverClass to set
+	 * @param driverClass
+	 *            the driverClass to set
 	 */
 	public void setDriverClass(String driverClass) {
 		this.driverClass = driverClass;
@@ -65,7 +67,8 @@ public class DataSourceProperties {
 	}
 
 	/**
-	 * @param url the url to set
+	 * @param url
+	 *            the url to set
 	 */
 	public void setUrl(String url) {
 		this.url = url;
@@ -79,7 +82,8 @@ public class DataSourceProperties {
 	}
 
 	/**
-	 * @param username the username to set
+	 * @param username
+	 *            the username to set
 	 */
 	public void setUsername(String username) {
 		this.username = username;
@@ -93,7 +97,8 @@ public class DataSourceProperties {
 	}
 
 	/**
-	 * @param password the password to set
+	 * @param password
+	 *            the password to set
 	 */
 	public void setPassword(String password) {
 		this.password = password;
@@ -107,7 +112,8 @@ public class DataSourceProperties {
 	}
 
 	/**
-	 * @param initialSize the initialSize to set
+	 * @param initialSize
+	 *            the initialSize to set
 	 */
 	public void setInitialSize(int initialSize) {
 		this.initialSize = initialSize;
@@ -121,7 +127,8 @@ public class DataSourceProperties {
 	}
 
 	/**
-	 * @param maxActive the maxActive to set
+	 * @param maxActive
+	 *            the maxActive to set
 	 */
 	public void setMaxActive(int maxActive) {
 		this.maxActive = maxActive;
@@ -135,7 +142,8 @@ public class DataSourceProperties {
 	}
 
 	/**
-	 * @param maxWait the maxWait to set
+	 * @param maxWait
+	 *            the maxWait to set
 	 */
 	public void setMaxWait(int maxWait) {
 		this.maxWait = maxWait;
@@ -149,7 +157,8 @@ public class DataSourceProperties {
 	}
 
 	/**
-	 * @param validationQuery the validationQuery to set
+	 * @param validationQuery
+	 *            the validationQuery to set
 	 */
 	public void setValidationQuery(String validationQuery) {
 		this.validationQuery = validationQuery;
@@ -163,7 +172,8 @@ public class DataSourceProperties {
 	}
 
 	/**
-	 * @param poolPreparedStatements the poolPreparedStatements to set
+	 * @param poolPreparedStatements
+	 *            the poolPreparedStatements to set
 	 */
 	public void setPoolPreparedStatements(boolean poolPreparedStatements) {
 		this.poolPreparedStatements = poolPreparedStatements;
@@ -177,7 +187,8 @@ public class DataSourceProperties {
 	}
 
 	/**
-	 * @param maxPoolPreparedStatementPerConnectionSize the maxPoolPreparedStatementPerConnectionSize to set
+	 * @param maxPoolPreparedStatementPerConnectionSize
+	 *            the maxPoolPreparedStatementPerConnectionSize to set
 	 */
 	public void setMaxPoolPreparedStatementPerConnectionSize(int maxPoolPreparedStatementPerConnectionSize) {
 		this.maxPoolPreparedStatementPerConnectionSize = maxPoolPreparedStatementPerConnectionSize;
@@ -191,7 +202,8 @@ public class DataSourceProperties {
 	}
 
 	/**
-	 * @param filters the filters to set
+	 * @param filters
+	 *            the filters to set
 	 */
 	public void setFilters(String filters) {
 		this.filters = filters;
@@ -205,7 +217,8 @@ public class DataSourceProperties {
 	}
 
 	/**
-	 * @param connectionProperties the connectionProperties to set
+	 * @param connectionProperties
+	 *            the connectionProperties to set
 	 */
 	public void setConnectionProperties(String connectionProperties) {
 		this.connectionProperties = connectionProperties;
