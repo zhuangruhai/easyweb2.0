@@ -10,7 +10,7 @@ import com.hichlink.easyweb.portal.common.entity.City;
 import com.hichlink.easyweb.portal.common.service.CityService;
 
 @Service("cityService")
-public class CityServiceImpl implements CityService{
+public class CityServiceImpl implements CityService {
 	@Autowired
 	private CityMapper cityMapper;
 
