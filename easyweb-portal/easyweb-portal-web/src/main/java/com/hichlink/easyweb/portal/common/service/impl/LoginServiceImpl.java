@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hichlink.easyweb.portal.common.auth.session.SessionContext;
+import com.hichlink.easyweb.portal.common.config.Config;
 import com.hichlink.easyweb.portal.common.dao.DepartmentDao;
 import com.hichlink.easyweb.portal.common.dao.StaffDao;
 import com.hichlink.easyweb.portal.common.entity.Department;
@@ -31,7 +32,8 @@ public class LoginServiceImpl implements LoginService {
 
 	@Autowired
 	private DepartmentDao departmentDao;
-
+	@Autowired
+	private PasswordAdapter loginPwd;
 	private Staff findStaffByKeyword(String keyword) {
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("keyword", keyword);
@@ -67,10 +69,9 @@ public class LoginServiceImpl implements LoginService {
 		paramStaff.setLoginName(name);
 		paramStaff.setPassword(password);
 
-		PasswordAdapter loginPwd = new PasswordAdapter(paramStaff);
 
 		// 登录密码和数据库中的密码不匹配
-		if (!loginStaff.getPassword().equals(loginPwd.encryptPassword())) {
+		if (!loginStaff.getPassword().equals(loginPwd.encryptPassword(paramStaff))) {
 			logger.info("用户[" + name + "]登录失败,登录密码不正确。");
 			throw new Exception("登录名或者密码不正确");
 		}

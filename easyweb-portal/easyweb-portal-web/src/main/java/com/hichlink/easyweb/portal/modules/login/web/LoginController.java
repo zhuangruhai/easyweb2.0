@@ -52,7 +52,12 @@ public class LoginController extends BaseController {
 	@Autowired
 	@Qualifier("departmentService")
 	private DepartmentService departmentService;
-
+	@Autowired
+	private Config config;
+	@RequestMapping(value = "/view")
+	public String view() {
+		return "login";
+	}
 	@RequestMapping(value = "/login.ajax", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, ? extends Object> login(HttpServletRequest request, HttpServletResponse response,
@@ -66,11 +71,11 @@ public class LoginController extends BaseController {
 				throw new Exception("用户/密码为空");
 			}
 
-			if (Config.getInstance().isCheckCodeOn() && isEmpty(checkCode)) {
+			if (config.isCheckCodeOn() && isEmpty(checkCode)) {
 				throw new Exception("验证码为空");
 			}
 
-			if (Config.getInstance().isCheckCodeOn() && !CheckCodeUtil.check(getSession(), checkCode)) {
+			if (config.isCheckCodeOn() && !CheckCodeUtil.check(getSession(), checkCode)) {
 				throw new Exception("验证码不正确");
 			}
 
@@ -84,7 +89,7 @@ public class LoginController extends BaseController {
 				CookieUtil.setCookie(request, response, COOKIE_VALID_PASSWD, password, COOKIE_VALID_MAXAGE);
 			}
 			Map<String, Object> result = new HashMap<String, Object>();
-			if (Config.getInstance().isContractAgreementOn()) {
+			if (config.isContractAgreementOn()) {
 				Staff staff = (Staff) getSession().getAttribute(LoginService.LOGIN_STAFF);
 				Department department = null;
 				if (null != staff.getDepartmentId()) {
@@ -109,9 +114,7 @@ public class LoginController extends BaseController {
 	@RequestMapping(value = "/logout.ajax", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, ? extends Object> logout(HttpServletRequest request, HttpServletResponse response) {
-
 		try {
-
 			loginService.logout(getSession());
 			CookieUtil.delCookie(request, response, TICKET_COOKIE_NAME);
 			CookieUtil.delCookie(request, response, COOKIE_VALID_USERNAME);

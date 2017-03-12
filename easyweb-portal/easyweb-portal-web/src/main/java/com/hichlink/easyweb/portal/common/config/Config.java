@@ -1,24 +1,33 @@
 package com.hichlink.easyweb.portal.common.config;
 
-import org.springframework.beans.factory.annotation.Value;
-
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Service;
+@Service
+@ConfigurationProperties(prefix = "sys")
 public class Config {
-	@Value("${sys.title}")
 	private String title;
-	@Value("${sys.isOldPasswordSupport}")
 	private String isOldPasswordSupport;
-	@Value("${sys.isCheckCodeOn}")
 	private String isCheckCodeOn;
-	private static Config config = null;
 
-	private Config() {
+	
+	public String getIsOldPasswordSupport() {
+		return isOldPasswordSupport;
 	}
 
-	public static Config getInstance() {
-		if (null == config) {
-			config = new Config();
-		}
-		return config;
+	public void setIsOldPasswordSupport(String isOldPasswordSupport) {
+		this.isOldPasswordSupport = isOldPasswordSupport;
+	}
+
+	public String getIsCheckCodeOn() {
+		return isCheckCodeOn;
+	}
+
+	public void setIsCheckCodeOn(String isCheckCodeOn) {
+		this.isCheckCodeOn = isCheckCodeOn;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	/**
