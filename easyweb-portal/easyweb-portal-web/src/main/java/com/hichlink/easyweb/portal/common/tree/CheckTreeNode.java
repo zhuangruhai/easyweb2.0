@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.tree;
+package com.hichlink.easyweb.portal.common.tree;
 
 public class CheckTreeNode extends TreeNode{
 

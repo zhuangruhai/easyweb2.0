@@ -1,11 +1,11 @@
-package com.aspire.webbas.portal.common.service;
+package com.hichlink.easyweb.portal.common.service;
 
 import java.util.List;
 
-import com.aspire.webbas.core.pagination.mybatis.pager.Page;
-import com.aspire.webbas.portal.common.entity.Role;
-import com.aspire.webbas.portal.common.entity.RoleResourceOperation;
-import com.aspire.webbas.portal.common.tree.TreeNode;
+import com.hichlink.easyweb.core.pagination.mybatis.pager.Page;
+import com.hichlink.easyweb.portal.common.entity.Role;
+import com.hichlink.easyweb.portal.common.entity.RoleResourceOperation;
+import com.hichlink.easyweb.portal.common.tree.TreeNode;
 
 public interface RoleService {
 

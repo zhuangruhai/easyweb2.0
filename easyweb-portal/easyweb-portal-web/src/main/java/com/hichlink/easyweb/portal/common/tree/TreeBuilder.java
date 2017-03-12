@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.tree;
+package com.hichlink.easyweb.portal.common.tree;
 
 import java.util.ArrayList;
 import java.util.Iterator;

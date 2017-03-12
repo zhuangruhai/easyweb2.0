@@ -1,10 +1,10 @@
-package com.aspire.webbas.client;
+package com.hichlink.easyweb.client;
 
 import javax.servlet.http.HttpServletRequest;
 
 
-import com.aspire.webbas.client.filter.TicketUtil;
-import com.aspire.webbas.portal.common.entity.Staff;
+import com.hichlink.easyweb.client.filter.TicketUtil;
+import com.hichlink.easyweb.portal.common.entity.Staff;
 
 /**
  * 

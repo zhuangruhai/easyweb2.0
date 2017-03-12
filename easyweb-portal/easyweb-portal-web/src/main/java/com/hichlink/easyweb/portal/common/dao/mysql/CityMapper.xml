@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.aspire.webbas.portal.common.dao.CityMapper" >
-  <resultMap id="BaseResultMap" type="com.aspire.webbas.portal.common.entity.City" >
+<mapper namespace="com.hichlink.easyweb.portal.common.dao.CityMapper" >
+  <resultMap id="BaseResultMap" type="com.hichlink.easyweb.portal.common.entity.City" >
     <id column="CITY_ID" property="cityId" jdbcType="INTEGER" />
     <result column="CITY_NAME" property="cityName" jdbcType="VARCHAR" />
     <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER" />
@@ -10,7 +10,7 @@
   <sql id="Base_Column_List" >
     CITY_ID, CITY_NAME, PROVINCE_ID, AREA_CODE
   </sql>
-  <select id="list" resultMap="BaseResultMap" parameterType="com.aspire.webbas.portal.common.entity.City" >
+  <select id="list" resultMap="BaseResultMap" parameterType="com.hichlink.easyweb.portal.common.entity.City" >
     select
     <include refid="Base_Column_List" />
     from city
@@ -26,13 +26,13 @@
     delete from city
     where CITY_ID = #{cityId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aspire.webbas.portal.common.entity.City" >
+  <insert id="insert" parameterType="com.hichlink.easyweb.portal.common.entity.City" >
     insert into city (CITY_ID, CITY_NAME, PROVINCE_ID, 
       AREA_CODE)
     values (#{cityId,jdbcType=INTEGER}, #{cityName,jdbcType=VARCHAR}, #{provinceId,jdbcType=INTEGER}, 
       #{areaCode,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.aspire.webbas.portal.common.entity.City" >
+  <insert id="insertSelective" parameterType="com.hichlink.easyweb.portal.common.entity.City" >
     insert into city
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="cityId != null" >
@@ -63,7 +63,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aspire.webbas.portal.common.entity.City" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.hichlink.easyweb.portal.common.entity.City" >
     update city
     <set >
       <if test="cityName != null" >
@@ -78,7 +78,7 @@
     </set>
     where CITY_ID = #{cityId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aspire.webbas.portal.common.entity.City" >
+  <update id="updateByPrimaryKey" parameterType="com.hichlink.easyweb.portal.common.entity.City" >
     update city
     set CITY_NAME = #{cityName,jdbcType=VARCHAR},
       PROVINCE_ID = #{provinceId,jdbcType=INTEGER},

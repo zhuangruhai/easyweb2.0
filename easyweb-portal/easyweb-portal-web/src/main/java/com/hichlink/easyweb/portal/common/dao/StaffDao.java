@@ -1,12 +1,12 @@
-package com.aspire.webbas.portal.common.dao;
+package com.hichlink.easyweb.portal.common.dao;
 
 import java.util.List;
 import java.util.Map;
 
-import com.aspire.webbas.core.pagination.mybatis.pager.Page;
-import com.aspire.webbas.portal.common.entity.SecStaffDepartmentRoleKey;
-import com.aspire.webbas.portal.common.entity.Staff;
-import com.aspire.webbas.portal.common.entity.StaffExtendProperty;
+import com.hichlink.easyweb.core.pagination.mybatis.pager.Page;
+import com.hichlink.easyweb.portal.common.entity.SecStaffDepartmentRoleKey;
+import com.hichlink.easyweb.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.entity.StaffExtendProperty;
 
 public interface StaffDao {
 

@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.service.impl;
+package com.hichlink.easyweb.portal.common.service.impl;
 
 import java.util.List;
 
@@ -6,21 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.aspire.webbas.core.pagination.mybatis.pager.Page;
-import com.aspire.webbas.portal.common.dao.DepartmentDao;
-import com.aspire.webbas.portal.common.dao.OperationDao;
-import com.aspire.webbas.portal.common.dao.ResourceCategoryDao;
-import com.aspire.webbas.portal.common.dao.ResourceDao;
-import com.aspire.webbas.portal.common.dao.RoleDao;
-import com.aspire.webbas.portal.common.dao.StaffDao;
-import com.aspire.webbas.portal.common.entity.Operation;
-import com.aspire.webbas.portal.common.entity.ResourceCategory;
-import com.aspire.webbas.portal.common.entity.Role;
-import com.aspire.webbas.portal.common.entity.RoleResourceOperation;
-import com.aspire.webbas.portal.common.service.RoleService;
-import com.aspire.webbas.portal.common.tree.CheckTreeNode;
-import com.aspire.webbas.portal.common.tree.TreeBuilder;
-import com.aspire.webbas.portal.common.tree.TreeNode;
+import com.hichlink.easyweb.core.pagination.mybatis.pager.Page;
+import com.hichlink.easyweb.portal.common.dao.DepartmentDao;
+import com.hichlink.easyweb.portal.common.dao.OperationDao;
+import com.hichlink.easyweb.portal.common.dao.ResourceCategoryDao;
+import com.hichlink.easyweb.portal.common.dao.ResourceDao;
+import com.hichlink.easyweb.portal.common.dao.RoleDao;
+import com.hichlink.easyweb.portal.common.dao.StaffDao;
+import com.hichlink.easyweb.portal.common.entity.Operation;
+import com.hichlink.easyweb.portal.common.entity.ResourceCategory;
+import com.hichlink.easyweb.portal.common.entity.Role;
+import com.hichlink.easyweb.portal.common.entity.RoleResourceOperation;
+import com.hichlink.easyweb.portal.common.service.RoleService;
+import com.hichlink.easyweb.portal.common.tree.CheckTreeNode;
+import com.hichlink.easyweb.portal.common.tree.TreeBuilder;
+import com.hichlink.easyweb.portal.common.tree.TreeNode;
 
 @Service("roleService")
 public class RoleServiceImpl implements RoleService{
@@ -279,14 +279,14 @@ public class RoleServiceImpl implements RoleService{
      * @param tree
      */
     private void addResource(TreeBuilder tree){
-    	com.aspire.webbas.portal.common.entity.Resource param = new com.aspire.webbas.portal.common.entity.Resource();
+    	com.hichlink.easyweb.portal.common.entity.Resource param = new com.hichlink.easyweb.portal.common.entity.Resource();
 		//param.setAuthType("AUTH");
 		
-		List<com.aspire.webbas.portal.common.entity.Resource> rList = resourceDao.listResource(param);
+		List<com.hichlink.easyweb.portal.common.entity.Resource> rList = resourceDao.listResource(param);
 		
 //		logger.debug("共找到Resource["+rList.size()+"]条记录。");
 		
-		for(com.aspire.webbas.portal.common.entity.Resource res : rList){
+		for(com.hichlink.easyweb.portal.common.entity.Resource res : rList){
 				TreeNode node = 
 						new TreeNode("res-" + longToString(res.getResourceId()), 
 								     longToString(res.getCategoryId()),

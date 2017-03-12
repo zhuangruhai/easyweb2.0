@@ -2,8 +2,8 @@
     <!DOCTYPE mapper 
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.aspire.webbas.portal.common.dao.DepartmentDao">
-	<resultMap type="com.aspire.webbas.portal.common.entity.Department" id="DepartmentMap">		
+<mapper namespace="com.hichlink.easyweb.portal.common.dao.DepartmentDao">
+	<resultMap type="com.hichlink.easyweb.portal.common.entity.Department" id="DepartmentMap">		
 		<result property="departmentId" column="DEPARTMENT_ID" /> 
 	    <result property="departmentName" column="DEPARTMENT_NAME" />
 	    <result property="departmentDesc" column="DEPARTMENT_DESC" />
@@ -20,7 +20,7 @@
 	
 	
 	<insert id="insertDepartment" 
-	        parameterType="com.aspire.webbas.portal.common.entity.Department"
+	        parameterType="com.hichlink.easyweb.portal.common.entity.Department"
 			useGeneratedKeys="true" keyProperty="departmentId">
 		<![CDATA[
 		INSERT INTO SEC_DEPARTMENT  (
@@ -50,7 +50,7 @@
   	</insert>
   	
   	<update id="updateDepartment" 
-  			parameterType="com.aspire.webbas.portal.common.entity.Department">
+  			parameterType="com.hichlink.easyweb.portal.common.entity.Department">
 		<![CDATA[
 		UPDATE SEC_DEPARTMENT
 		SET    DEPARTMENT_NAME  = #{departmentName},
@@ -74,7 +74,7 @@
   	
 	<select id="findDepartment" 
   	        resultMap="DepartmentMap" 
-  	        parameterType="string">
+  	        parameterType="long">
 		<![CDATA[
 		SELECT  *
 		FROM	SEC_DEPARTMENT
@@ -84,7 +84,7 @@
   	
   	<select id="listDepartment" 
   	        resultMap="DepartmentMap" 
-  	        parameterType="com.aspire.webbas.portal.common.entity.Department">
+  	        parameterType="com.hichlink.easyweb.portal.common.entity.Department">
   	        
 		SELECT  *
 		FROM    SEC_DEPARTMENT 

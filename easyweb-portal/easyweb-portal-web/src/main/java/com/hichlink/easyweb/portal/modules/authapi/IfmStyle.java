@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.modules.authapi;
+package com.hichlink.easyweb.portal.modules.authapi;
 
 import java.io.Serializable;
 

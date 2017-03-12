@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hichlink.easyweb.attachment.dao.AttachmentGroupMapper" >
+  <resultMap id="BaseResultMap" type="com.hichlink.easyweb.attachment.entity.AttachmentGroup" >
+    <id column="ATTACH_GROUP_ID" property="attachGroupId" jdbcType="VARCHAR" />
+    <result column="ATTACH_TYPE_ID" property="attachTypeId" jdbcType="VARCHAR" />
+    <result column="ATTACH_GROUP_STATUS" property="attachGroupStatus" jdbcType="VARCHAR" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <!--例子:<if test="params['name'] != null and  params['name'] != ''">and name=#{params.name}</if>-->
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ATTACH_GROUP_ID, ATTACH_TYPE_ID, ATTACH_GROUP_STATUS, CREATE_DATE
+  </sql>
+  <select id="pageQuery" resultMap="BaseResultMap" parameterType="com.hichlink.easyweb.core.pagination.mybatis.pager.Page" >
+    select
+    <include refid="Base_Column_List" />
+    from ATTACHMENT_GROUP
+    <if test="params != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ATTACHMENT_GROUP
+    where ATTACH_GROUP_ID = #{attachGroupId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ATTACHMENT_GROUP
+    where ATTACH_GROUP_ID = #{attachGroupId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.hichlink.easyweb.attachment.entity.AttachmentGroup" 
+    useGeneratedKeys="true" keyProperty="attachGroupId">
+    insert into ATTACHMENT_GROUP (ATTACH_GROUP_ID, ATTACH_TYPE_ID, ATTACH_GROUP_STATUS, 
+      CREATE_DATE)
+    values (#{attachGroupId}, #{attachTypeId,jdbcType=VARCHAR}, #{attachGroupStatus,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hichlink.easyweb.attachment.entity.AttachmentGroup" >
+    insert into ATTACHMENT_GROUP
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="attachGroupId != null" >
+        ATTACH_GROUP_ID,
+      </if>
+      <if test="attachTypeId != null" >
+        ATTACH_TYPE_ID,
+      </if>
+      <if test="attachGroupStatus != null" >
+        ATTACH_GROUP_STATUS,
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="attachGroupId != null" >
+        #{attachGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="attachTypeId != null" >
+        #{attachTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="attachGroupStatus != null" >
+        #{attachGroupStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hichlink.easyweb.attachment.entity.AttachmentGroup" >
+    update ATTACHMENT_GROUP
+    <set >
+      <if test="attachTypeId != null" >
+        ATTACH_TYPE_ID = #{attachTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="attachGroupStatus != null" >
+        ATTACH_GROUP_STATUS = #{attachGroupStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE = #{createDate,jdbcType=DATE},
+      </if>
+    </set>
+    where ATTACH_GROUP_ID = #{attachGroupId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hichlink.easyweb.attachment.entity.AttachmentGroup" >
+    update ATTACHMENT_GROUP
+    set ATTACH_TYPE_ID = #{attachTypeId,jdbcType=VARCHAR},
+      ATTACH_GROUP_STATUS = #{attachGroupStatus,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=DATE}
+    where ATTACH_GROUP_ID = #{attachGroupId,jdbcType=VARCHAR}
+  </update>
+  <delete id="clearTempGroup" parameterType="java.lang.Integer">
+<![CDATA[
+    DELETE  FROM  ATTACHMENT_GROUP 
+    WHERE 
+    		ATTACH_GROUP_STATUS = 'temp'
+    	AND	CREATE_DATE < SYSDATE()-$value$
+]]>
+</delete>
+
+<select id="list" resultMap="BaseResultMap"  parameterType="com.hichlink.easyweb.attachment.entity.AttachmentGroup" >
+<![CDATA[
+    SELECT
+            ATTACH_GROUP_ID, 
+            ATTACH_TYPE_ID, 
+            ATTACH_GROUP_STATUS,
+            CREATE_DATE
+    FROM ATTACHMENT_GROUP
+]]>
+<where>
+		1=1
+		<if test="attachGroupId != null and  attachGroupId!= ''">
+				and ATTACH_GROUP_ID = #{attachGroupId}
+		</if>
+		<if test="attachTypeId != null and  attachTypeId!= ''">
+				and ATTACH_TYPE_ID = #{attachTypeId}
+		</if>
+		<if test="attachGroupStatus != null and  attachGroupStatus!= ''">
+				and ATTACH_GROUP_STATUS = #{attachGroupStatus}
+		</if>
+		<if test="others['groupIdArray'] != null">
+				and ATTACH_GROUP_ID IN 
+				<foreach collection="others.groupIdArray" item="item" open="(" separator=","
+					close=")">
+					#{item}
+				</foreach>
+		</if>
+	</where>
+</select>
+</mapper>

@@ -1,26 +1,26 @@
-package com.aspire.webbas.portal.common.service.impl;
+package com.hichlink.easyweb.portal.common.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.aspire.webbas.core.pagination.mybatis.pager.Page;
-import com.aspire.webbas.portal.common.dao.DepartmentDao;
-import com.aspire.webbas.portal.common.dao.RoleDao;
-import com.aspire.webbas.portal.common.dao.StaffDao;
-import com.aspire.webbas.portal.common.entity.Department;
-import com.aspire.webbas.portal.common.entity.Role;
-import com.aspire.webbas.portal.common.entity.Staff;
-import com.aspire.webbas.portal.common.service.DepartmentService;
-import com.aspire.webbas.portal.common.tree.TreeBuilder;
-import com.aspire.webbas.portal.common.tree.TreeNode;
-import com.aspire.webbas.portal.common.util.StaffUtil;
+import com.hichlink.easyweb.core.pagination.mybatis.pager.Page;
+import com.hichlink.easyweb.portal.common.dao.DepartmentDao;
+import com.hichlink.easyweb.portal.common.dao.RoleDao;
+import com.hichlink.easyweb.portal.common.dao.StaffDao;
+import com.hichlink.easyweb.portal.common.entity.Department;
+import com.hichlink.easyweb.portal.common.entity.Role;
+import com.hichlink.easyweb.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.service.DepartmentService;
+import com.hichlink.easyweb.portal.common.tree.TreeBuilder;
+import com.hichlink.easyweb.portal.common.tree.TreeNode;
+import com.hichlink.easyweb.portal.common.util.StaffUtil;
 
 @Service("departmentService")
 public class DepartmentServiceImpl implements DepartmentService{

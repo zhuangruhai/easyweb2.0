@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.modules.authmgt.web;
+package com.hichlink.easyweb.portal.modules.authmgt.web;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.aspire.webbas.core.pagination.mybatis.pager.Page;
-import com.aspire.webbas.core.web.BaseController;
-import com.aspire.webbas.portal.common.entity.Role;
-import com.aspire.webbas.portal.common.entity.RoleResourceOperation;
-import com.aspire.webbas.portal.common.service.RoleService;
-import com.aspire.webbas.portal.common.tree.TreeNode;
-import com.aspire.webbas.portal.common.util.StaffUtil;
+import com.hichlink.easyweb.core.pagination.mybatis.pager.Page;
+import com.hichlink.easyweb.core.web.BaseController;
+import com.hichlink.easyweb.portal.common.entity.Role;
+import com.hichlink.easyweb.portal.common.entity.RoleResourceOperation;
+import com.hichlink.easyweb.portal.common.service.RoleService;
+import com.hichlink.easyweb.portal.common.tree.TreeNode;
+import com.hichlink.easyweb.portal.common.util.StaffUtil;
 
 @Controller
 @RequestMapping("/role")

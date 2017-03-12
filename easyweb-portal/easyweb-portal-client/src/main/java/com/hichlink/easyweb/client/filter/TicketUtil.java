@@ -1,4 +1,4 @@
-package com.aspire.webbas.client.filter;
+package com.hichlink.easyweb.client.filter;
 
 import javax.servlet.ServletException;
 

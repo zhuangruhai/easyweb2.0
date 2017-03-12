@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.modules.authapi;
+package com.hichlink.easyweb.portal.modules.authapi;
 
 import java.lang.reflect.Field;
 import java.net.URLDecoder;
@@ -8,22 +8,20 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.sf.json.JSONObject;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.ReflectionUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.aspire.webbas.core.web.BaseController;
-import com.aspire.webbas.portal.common.entity.Staff;
-import com.aspire.webbas.portal.common.service.AuthService;
-import com.aspire.webbas.portal.common.util.CookieUtil;
-import com.aspire.webbas.portal.common.util.StaffUtil;
+import com.alibaba.fastjson.JSON;
+import com.hichlink.easyweb.core.web.BaseController;
+import com.hichlink.easyweb.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.service.AuthService;
+import com.hichlink.easyweb.portal.common.util.CookieUtil;
+import com.hichlink.easyweb.portal.common.util.StaffUtil;
 
 /**
  * 
@@ -64,8 +62,7 @@ public class AuthController extends BaseController {
 			modelMap.put("success", false);
 			modelMap.put("data", e.getMessage());
 		}
-		super.outputMatch(request, response, JSONObject
-				.fromObject(modelMap).toString());
+		super.outputMatch(request, response, JSON.toJSONString(modelMap));
 	}
 
 
@@ -100,8 +97,7 @@ public class AuthController extends BaseController {
 			modelMap.put("success", false);
 			modelMap.put("data", null);
 		}
-		super.outputMatch(request, response, JSONObject
-				.fromObject(modelMap).toString());
+		super.outputMatch(request, response, JSON.toJSONString(modelMap));
 	}
 
 	private void checkArgumentValid(String resKeys, String operKeys) {

@@ -1,118 +1,59 @@
-package com.aspire.webbas.portal.common.config;
+package com.hichlink.easyweb.portal.common.config;
 
-import org.apache.commons.configuration.Configuration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.aspire.webbas.configuration.config.ConfigurationHelper;
-
+import org.springframework.beans.factory.annotation.Value;
 
 public class Config {
-
+	@Value("${sys.title}")
+	private String title;
+	@Value("${sys.isOldPasswordSupport}")
+	private String isOldPasswordSupport;
+	@Value("${sys.isCheckCodeOn}")
+	private String isCheckCodeOn;
+	private static Config config = null;
+	private Config(){}
+	public static Config getInstance(){
+		if (null == config){
+			config = new Config();
+		}
+		return config;
+	}
 	/**
-     * logger.
-     */
-    private static final Logger logger = LoggerFactory.getLogger(Config.class);
-	/**
-     * 配置文件接口.
-     */
-    private static Configuration configuration = null;
-    
-    /**
-     * 门户配置对象.
-     */
-    private static Config config;
+	 * 得到登陆前后首页各省定制的系统名称展示的title
+	 * 
+	 * @return
+	 */
+	public String getTitle() {
+		return title;
+	}
 
-    /**
-     * 缺省配置文件名称.
-     */
-    private static final String DEFAULT_CONFIGURATION_FILENAME = "webbas.xml";
-    
-    /**
-     * 配置文件名.
-     */
-    private static String configurationFileName = DEFAULT_CONFIGURATION_FILENAME;
-    
-    /**
-     * 私有构造方法.
-     * @param configurationFileName 配置文件相对路径
-     */
-    private Config() {
-        if (configuration == null) {
-            refresh();
-        }
-    }
-    
-    /*
-    **
-    * 获取AJAX服务端配置对象.
-    * @return AJAX服务端配置对象
-    */
-   public static Config getInstance() {
-       if (config == null) {
-           config = new Config();
-       }
-       return config;
-   }
-   
-   /**
-    * 刷新配置文件.
-    */
-   private static void refresh() {
-       configuration = ConfigurationHelper.getConfiguration(configurationFileName,50000);
-       if (configuration == null) {
-           logger.error("读portal配置文件失败, 配置文件：" + configurationFileName);
-       }
-   }
-   
-   /**
-    * 得到登陆前后首页各省定制的系统名称展示的title
-    * @return
-    */
-   public String getTitle() { 
-       return getString("portal.title");
-   }
-   
-   public boolean isOldPasswordSupport(){
-	   String support = getString("portal.old-password-crypt-support", "off");
-	   
-	   return "on".equalsIgnoreCase(support);
-   }
-   public boolean isCheckCodeOn(){
-	   String support = getString("portal.checkCode", "false");
-	   return "true".equalsIgnoreCase(support);
-   }
-   public boolean isContractAgreementOn(){
-	   String support = getString("portal.contractAgreement", "false");
-	   return "true".equalsIgnoreCase(support);
-   }
-   public boolean isRegisterOn(){
-	   String support = getString("portal.is-register-on", "false");
-	   return "true".equalsIgnoreCase(support);
-   }
-   public String getRegisterUrl(){
-	   return getString("portal.register-url");
-   }
-   public boolean isForgotpwdOn(){
-	   String support = getString("portal.is-forgotpwd-on", "false");
-	   return "true".equalsIgnoreCase(support);
-   }
-   public String getForgotpwdUrl(){
-	   return getString("portal.forgotpwd-url");
-   }
-   private String getString(String arg){
-	   if (configuration == null ) {
-           return null;
-       }
-	   
-	   return configuration.getString(arg);
-   }
-   
-   private String getString(String arg, String def){
-	   if (configuration == null ) {
-           return def;
-       }
-	   
-	   return configuration.getString(arg, def);
-   }
+	public boolean isOldPasswordSupport() {
+		String support = isOldPasswordSupport;
+		return "on".equalsIgnoreCase(support);
+	}
+
+	public boolean isCheckCodeOn() {
+		String support = isCheckCodeOn;
+		return "true".equalsIgnoreCase(support);
+	}
+
+	public boolean isContractAgreementOn() {
+		return false;
+	}
+
+	public boolean isRegisterOn() {
+		return false;
+	}
+
+	public String getRegisterUrl() {
+		return "";
+	}
+
+	public boolean isForgotpwdOn() {
+		return false;
+	}
+
+	public String getForgotpwdUrl() {
+		return "";
+	}
+
 }

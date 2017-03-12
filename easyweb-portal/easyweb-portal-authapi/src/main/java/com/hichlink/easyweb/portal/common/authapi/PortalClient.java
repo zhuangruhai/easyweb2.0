@@ -1,11 +1,11 @@
-package com.aspire.webbas.portal.common.authapi;
+package com.hichlink.easyweb.portal.common.authapi;
 
 import java.util.List;
 import java.util.Map;
 
-import com.aspire.webbas.portal.common.entity.Department;
-import com.aspire.webbas.portal.common.entity.Role;
-import com.aspire.webbas.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.entity.Department;
+import com.hichlink.easyweb.portal.common.entity.Role;
+import com.hichlink.easyweb.portal.common.entity.Staff;
 
 public interface PortalClient {
 

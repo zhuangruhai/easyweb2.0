@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.entity;
+package com.hichlink.easyweb.portal.common.entity;
 
 
 public class Menu extends BaseEntity {

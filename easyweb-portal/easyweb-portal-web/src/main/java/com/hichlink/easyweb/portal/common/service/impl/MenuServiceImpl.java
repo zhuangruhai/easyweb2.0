@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.service.impl;
+package com.hichlink.easyweb.portal.common.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,18 +6,18 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.aspire.webbas.portal.common.dao.MenuDao;
-import com.aspire.webbas.portal.common.dao.SubSystemDao;
-import com.aspire.webbas.portal.common.entity.Menu;
-import com.aspire.webbas.portal.common.entity.SubSystem;
-import com.aspire.webbas.portal.common.service.AuthService;
-import com.aspire.webbas.portal.common.service.MenuService;
-import com.aspire.webbas.portal.common.tree.MenuTreeNode;
-import com.aspire.webbas.portal.common.tree.TreeNode;
+import com.hichlink.easyweb.portal.common.dao.MenuDao;
+import com.hichlink.easyweb.portal.common.dao.SubSystemDao;
+import com.hichlink.easyweb.portal.common.entity.Menu;
+import com.hichlink.easyweb.portal.common.entity.SubSystem;
+import com.hichlink.easyweb.portal.common.service.AuthService;
+import com.hichlink.easyweb.portal.common.service.MenuService;
+import com.hichlink.easyweb.portal.common.tree.MenuTreeNode;
+import com.hichlink.easyweb.portal.common.tree.TreeNode;
 
 @Service("menuService")
 public class MenuServiceImpl implements MenuService{

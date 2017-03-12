@@ -1,10 +1,9 @@
-package com.aspire.webbas.portal.common.util;
+package com.hichlink.easyweb.portal.common.util;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.security.SecureRandom;
 import java.util.Random;
 
 import javax.servlet.http.HttpSession;

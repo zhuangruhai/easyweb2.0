@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.aspire.webbas.portal.common.dao.PendTaskSettingMapper" >
-  <resultMap id="BaseResultMap" type="com.aspire.webbas.portal.common.entity.PendTaskSetting" >
+<mapper namespace="com.hichlink.easyweb.portal.common.dao.PendTaskSettingMapper" >
+  <resultMap id="BaseResultMap" type="com.hichlink.easyweb.portal.common.entity.PendTaskSetting" >
     <id column="STAFFID" property="staffid" jdbcType="VARCHAR" />
     <result column="SENDEMAIL" property="sendemail" jdbcType="VARCHAR" />
     <result column="SENDSMS" property="sendsms" jdbcType="VARCHAR" />
@@ -17,7 +17,7 @@
   <sql id="Base_Column_List" >
     STAFFID, SENDEMAIL, SENDSMS, EMAILSENDTIME, SMSSENDTIME, EMAILSENDTYPE
   </sql>
-  <select id="pageQuery" resultMap="BaseResultMap" parameterType="com.aspire.webbas.core.pagination.mybatis.pager.Page" >
+  <select id="pageQuery" resultMap="BaseResultMap" parameterType="com.hichlink.easyweb.core.pagination.mybatis.pager.Page" >
     select
     <include refid="Base_Column_List" />
     from PEND_TASK_SETTING
@@ -35,7 +35,7 @@
     delete from PEND_TASK_SETTING
     where STAFFID = #{staffid,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.aspire.webbas.portal.common.entity.PendTaskSetting" >
+  <insert id="insert" parameterType="com.hichlink.easyweb.portal.common.entity.PendTaskSetting" >
     insert into PEND_TASK_SETTING (STAFFID, SENDEMAIL, SENDSMS, 
       EMAILSENDTIME, SMSSENDTIME, EMAILSENDTYPE
       )
@@ -43,7 +43,7 @@
       #{emailsendtime,jdbcType=VARCHAR}, #{smssendtime,jdbcType=VARCHAR}, #{emailsendtype,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.aspire.webbas.portal.common.entity.PendTaskSetting" >
+  <insert id="insertSelective" parameterType="com.hichlink.easyweb.portal.common.entity.PendTaskSetting" >
     insert into PEND_TASK_SETTING
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="staffid != null" >
@@ -86,7 +86,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aspire.webbas.portal.common.entity.PendTaskSetting" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.hichlink.easyweb.portal.common.entity.PendTaskSetting" >
     update PEND_TASK_SETTING
     <set >
       <if test="sendemail != null" >
@@ -107,7 +107,7 @@
     </set>
     where STAFFID = #{staffid,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aspire.webbas.portal.common.entity.PendTaskSetting" >
+  <update id="updateByPrimaryKey" parameterType="com.hichlink.easyweb.portal.common.entity.PendTaskSetting" >
     update PEND_TASK_SETTING
     set SENDEMAIL = #{sendemail,jdbcType=VARCHAR},
       SENDSMS = #{sendsms,jdbcType=VARCHAR},

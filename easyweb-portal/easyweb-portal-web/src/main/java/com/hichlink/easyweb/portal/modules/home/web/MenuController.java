@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.modules.home.web;
+package com.hichlink.easyweb.portal.modules.home.web;
 
 import java.util.List;
 import java.util.Map;
@@ -11,11 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.aspire.webbas.core.web.BaseController;
-import com.aspire.webbas.portal.common.entity.Staff;
-import com.aspire.webbas.portal.common.service.MenuService;
-import com.aspire.webbas.portal.common.tree.MenuTreeNode;
-import com.aspire.webbas.portal.common.util.StaffUtil;
+import com.hichlink.easyweb.core.web.BaseController;
+import com.hichlink.easyweb.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.service.MenuService;
+import com.hichlink.easyweb.portal.common.tree.MenuTreeNode;
+import com.hichlink.easyweb.portal.common.util.StaffUtil;
 
 @Controller
 @RequestMapping("/portal")

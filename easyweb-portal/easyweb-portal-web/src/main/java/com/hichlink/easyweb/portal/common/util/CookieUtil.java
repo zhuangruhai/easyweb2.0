@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.util;
+package com.hichlink.easyweb.portal.common.util;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

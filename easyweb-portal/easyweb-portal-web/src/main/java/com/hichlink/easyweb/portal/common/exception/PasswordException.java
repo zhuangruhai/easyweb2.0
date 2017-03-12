@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.exception;
+package com.hichlink.easyweb.portal.common.exception;
 
 public class PasswordException extends RuntimeException {
 

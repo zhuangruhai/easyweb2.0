@@ -1,8 +1,8 @@
 /*** Auto generator by codegenerator 2014-06-20 16:55:03*/
-package com.aspire.webbas.portal.common.dao;
+package com.hichlink.easyweb.portal.common.dao;
 
-import com.aspire.webbas.core.pagination.mybatis.pager.Page;
-import com.aspire.webbas.portal.common.entity.PendTaskSetting;
+import com.hichlink.easyweb.core.pagination.mybatis.pager.Page;
+import com.hichlink.easyweb.portal.common.entity.PendTaskSetting;
 import java.util.List;
 
 public interface PendTaskSettingMapper {

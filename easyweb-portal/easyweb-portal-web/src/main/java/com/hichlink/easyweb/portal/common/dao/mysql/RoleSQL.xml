@@ -2,8 +2,8 @@
     <!DOCTYPE mapper 
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.aspire.webbas.portal.common.dao.RoleDao">
-	<resultMap type="com.aspire.webbas.portal.common.entity.Role" id="RoleMap">		
+<mapper namespace="com.hichlink.easyweb.portal.common.dao.RoleDao">
+	<resultMap type="com.hichlink.easyweb.portal.common.entity.Role" id="RoleMap">		
 		<result property="roleId" column="ROLE_ID" />
 		<result property="roleKey" column="ROLE_KEY" />	
 		<result property="roleName" column="ROLE_NAME" />
@@ -18,7 +18,7 @@
 	
 	
 	<insert id="insertRole" 
-	        parameterType="com.aspire.webbas.portal.common.entity.Role"
+	        parameterType="com.hichlink.easyweb.portal.common.entity.Role"
 	    useGeneratedKeys="true" keyProperty="roleId">
 		<![CDATA[
 		INSERT  INTO SEC_ROLE   (
@@ -46,7 +46,7 @@
 	</insert>
 	
 	<update id="updateRole" 
-	        parameterType="com.aspire.webbas.portal.common.entity.Role">
+	        parameterType="com.hichlink.easyweb.portal.common.entity.Role">
 		<![CDATA[
 		UPDATE  SEC_ROLE
 		SET     ROLE_NAME       = #{roleName}        ,
@@ -118,7 +118,7 @@
 	
 	<select id="listRole"
 	        resultMap="RoleMap" 
-	        parameterType="com.aspire.webbas.core.pagination.mybatis.pager.Page">
+	        parameterType="com.hichlink.easyweb.core.pagination.mybatis.pager.Page">
 		<![CDATA[
 			SELECT * FROM SEC_ROLE   
 		]]>  
@@ -176,7 +176,7 @@
   	</select>   
   	
   	<insert id="insertRoleResourceOperation" 
-  	        parameterType="com.aspire.webbas.portal.common.entity.RoleResourceOperation">
+  	        parameterType="com.hichlink.easyweb.portal.common.entity.RoleResourceOperation">
 		<![CDATA[
 		INSERT  INTO SEC_ROLE_RESOURCE_OPERATION 
 			(

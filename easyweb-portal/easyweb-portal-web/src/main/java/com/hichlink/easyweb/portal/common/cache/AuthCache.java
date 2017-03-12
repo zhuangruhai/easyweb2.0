@@ -1,9 +1,9 @@
-package com.aspire.webbas.portal.common.cache;
+package com.hichlink.easyweb.portal.common.cache;
 
 import java.util.List;
 import java.util.Map;
 
-import com.aspire.webbas.portal.common.entity.OperationAddress;
+import com.hichlink.easyweb.portal.common.entity.OperationAddress;
 
 public class AuthCache {
 

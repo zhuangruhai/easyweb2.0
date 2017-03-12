@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.service;
+package com.hichlink.easyweb.portal.common.service;
 
 import java.util.List;
 import java.util.Map;

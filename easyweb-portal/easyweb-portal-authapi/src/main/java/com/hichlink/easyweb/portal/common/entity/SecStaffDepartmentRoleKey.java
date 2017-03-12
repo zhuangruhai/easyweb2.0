@@ -1,5 +1,5 @@
 /*** Auto generator by codegenerator 2014-07-18 11:11:09*/
-package com.aspire.webbas.portal.common.entity;
+package com.hichlink.easyweb.portal.common.entity;
 
 public class SecStaffDepartmentRoleKey {
     /**

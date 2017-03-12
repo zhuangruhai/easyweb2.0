@@ -1,8 +1,8 @@
-package com.aspire.webbas.portal.common.service;
+package com.hichlink.easyweb.portal.common.service;
 
 import java.util.List;
 
-import com.aspire.webbas.portal.common.tree.MenuTreeNode;
+import com.hichlink.easyweb.portal.common.tree.MenuTreeNode;
 
 public interface MenuService {
 

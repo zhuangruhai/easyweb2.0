@@ -1,7 +1,7 @@
 /**
  * 该文件由自动生成代码器生成
  */
-package com.aspire.webbas.portal.modules.authmgt.web;
+package com.hichlink.easyweb.portal.modules.authmgt.web;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.aspire.webbas.core.util.StringTools;
-import com.aspire.webbas.core.web.BaseController;
-import com.aspire.webbas.portal.common.entity.PendTaskSetting;
-import com.aspire.webbas.portal.common.entity.Staff;
-import com.aspire.webbas.portal.common.service.PendTaskSettingService;
-import com.aspire.webbas.portal.common.util.StaffUtil;
+import com.hichlink.easyweb.core.util.StringTools;
+import com.hichlink.easyweb.core.web.BaseController;
+import com.hichlink.easyweb.portal.common.entity.PendTaskSetting;
+import com.hichlink.easyweb.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.service.PendTaskSettingService;
+import com.hichlink.easyweb.portal.common.util.StaffUtil;
 
 /**
  * 

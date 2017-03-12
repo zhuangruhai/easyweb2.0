@@ -2,9 +2,9 @@
     <!DOCTYPE mapper 
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.aspire.webbas.portal.common.dao.SubSystemDao">
+<mapper namespace="com.hichlink.easyweb.portal.common.dao.SubSystemDao">
 	
-	<resultMap  type="com.aspire.webbas.portal.common.entity.SubSystem" id="subSystemMap">
+	<resultMap  type="com.hichlink.easyweb.portal.common.entity.SubSystem" id="subSystemMap">
         <result property="subSystemId" column="sub_System_Id"/>
         <result property="subSystemName" column="sub_System_Name"/>
         <result property="subSystemDesc" column="sub_System_Desc"/>
@@ -16,7 +16,7 @@
 	
 
 	
-	  <select id="listSubSystem" resultMap="subSystemMap"  parameterType="com.aspire.webbas.portal.common.entity.SubSystem">    
+	  <select id="listSubSystem" resultMap="subSystemMap"  parameterType="com.hichlink.easyweb.portal.common.entity.SubSystem">    
 		<![CDATA[
 		SELECT	*
 		FROM	sub_system

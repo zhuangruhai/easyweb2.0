@@ -2,9 +2,9 @@
     <!DOCTYPE mapper 
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.aspire.webbas.portal.common.dao.MenuDao">
+<mapper namespace="com.hichlink.easyweb.portal.common.dao.MenuDao">
 	
-	<resultMap  type="com.aspire.webbas.portal.common.entity.Menu" id="menuMap">
+	<resultMap  type="com.hichlink.easyweb.portal.common.entity.Menu" id="menuMap">
         <result property="menuId" column="menu_id"/>
         <result property="menuName" column="menu_name"/>
         <result property="menuKey" column="menu_key"/>
@@ -18,7 +18,7 @@
 	
 
 	
-	  <select id="listMenu" resultMap="menuMap"  parameterType="com.aspire.webbas.portal.common.entity.Menu">    
+	  <select id="listMenu" resultMap="menuMap"  parameterType="com.hichlink.easyweb.portal.common.entity.Menu">    
 		<![CDATA[
 		SELECT	*
 		FROM	MENU

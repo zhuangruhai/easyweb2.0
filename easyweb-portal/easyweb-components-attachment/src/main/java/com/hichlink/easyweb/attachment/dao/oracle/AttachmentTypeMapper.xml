@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hichlink.easyweb.attachment.dao.AttachmentTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.hichlink.easyweb.attachment.entity.AttachmentType" >
+    <id column="ATTACH_TYPE_ID" property="attachTypeId" jdbcType="VARCHAR" />
+    <result column="ATTACH_TYPE_NAME" property="attachTypeName" jdbcType="VARCHAR" />
+    <result column="ATTACH_TYPE_DESC" property="attachTypeDesc" jdbcType="VARCHAR" />
+    <result column="ATTACH_COUNT_LIMIT" property="attachCountLimit" jdbcType="DECIMAL" />
+    <result column="ATTACH_SIZE_LIMIT" property="attachSizeLimit" jdbcType="DECIMAL" />
+    <result column="SINGLE_SIZE_LIMIT" property="singleSizeLimit" jdbcType="DECIMAL" />
+    <result column="FILE_SUFFIX_LIMIT" property="fileSuffixLimit" jdbcType="VARCHAR" />
+    <result column="SYNC_TYPE" property="syncType" jdbcType="VARCHAR" />
+    <result column="MAX_FILE_NAME_LENGTH" property="maxFileNameLength" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <!--例子:<if test="params['name'] != null and  params['name'] != ''">and name=#{params.name}</if>-->
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ATTACH_TYPE_ID, ATTACH_TYPE_NAME, ATTACH_TYPE_DESC, ATTACH_COUNT_LIMIT, ATTACH_SIZE_LIMIT, 
+    SINGLE_SIZE_LIMIT, FILE_SUFFIX_LIMIT, SYNC_TYPE, MAX_FILE_NAME_LENGTH
+  </sql>
+  <select id="pageQuery" resultMap="BaseResultMap" parameterType="com.hichlink.easyweb.core.pagination.mybatis.pager.Page" >
+    select
+    <include refid="Base_Column_List" />
+    from ATTACHMENT_TYPE
+    <if test="params != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ATTACHMENT_TYPE
+    where ATTACH_TYPE_ID = #{attachTypeId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ATTACHMENT_TYPE
+    where ATTACH_TYPE_ID = #{attachTypeId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.hichlink.easyweb.attachment.entity.AttachmentType" >
+  	<selectKey resultType="String" keyProperty="attachTypeId" order="BEFORE">   
+	    <![CDATA[   
+	          SELECT SEQ_ATTACH_TYPE_ID.Nextval AS Id  FROM dual
+	    ]]>   
+	</selectKey>
+    insert into ATTACHMENT_TYPE (ATTACH_TYPE_ID, ATTACH_TYPE_NAME, ATTACH_TYPE_DESC, 
+      ATTACH_COUNT_LIMIT, ATTACH_SIZE_LIMIT, SINGLE_SIZE_LIMIT, 
+      FILE_SUFFIX_LIMIT, SYNC_TYPE, MAX_FILE_NAME_LENGTH
+      )
+    values (#{attachTypeId}, #{attachTypeName,jdbcType=VARCHAR}, #{attachTypeDesc,jdbcType=VARCHAR}, 
+      #{attachCountLimit,jdbcType=DECIMAL}, #{attachSizeLimit,jdbcType=DECIMAL}, #{singleSizeLimit,jdbcType=DECIMAL}, 
+      #{fileSuffixLimit,jdbcType=VARCHAR}, #{syncType,jdbcType=VARCHAR}, #{maxFileNameLength,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hichlink.easyweb.attachment.entity.AttachmentType" >
+    insert into ATTACHMENT_TYPE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="attachTypeId != null" >
+        ATTACH_TYPE_ID,
+      </if>
+      <if test="attachTypeName != null" >
+        ATTACH_TYPE_NAME,
+      </if>
+      <if test="attachTypeDesc != null" >
+        ATTACH_TYPE_DESC,
+      </if>
+      <if test="attachCountLimit != null" >
+        ATTACH_COUNT_LIMIT,
+      </if>
+      <if test="attachSizeLimit != null" >
+        ATTACH_SIZE_LIMIT,
+      </if>
+      <if test="singleSizeLimit != null" >
+        SINGLE_SIZE_LIMIT,
+      </if>
+      <if test="fileSuffixLimit != null" >
+        FILE_SUFFIX_LIMIT,
+      </if>
+      <if test="syncType != null" >
+        SYNC_TYPE,
+      </if>
+      <if test="maxFileNameLength != null" >
+        MAX_FILE_NAME_LENGTH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="attachTypeId != null" >
+        #{attachTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="attachTypeName != null" >
+        #{attachTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="attachTypeDesc != null" >
+        #{attachTypeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="attachCountLimit != null" >
+        #{attachCountLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="attachSizeLimit != null" >
+        #{attachSizeLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="singleSizeLimit != null" >
+        #{singleSizeLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="fileSuffixLimit != null" >
+        #{fileSuffixLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="syncType != null" >
+        #{syncType,jdbcType=VARCHAR},
+      </if>
+      <if test="maxFileNameLength != null" >
+        #{maxFileNameLength,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hichlink.easyweb.attachment.entity.AttachmentType" >
+    update ATTACHMENT_TYPE
+    <set >
+      <if test="attachTypeName != null" >
+        ATTACH_TYPE_NAME = #{attachTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="attachTypeDesc != null" >
+        ATTACH_TYPE_DESC = #{attachTypeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="attachCountLimit != null" >
+        ATTACH_COUNT_LIMIT = #{attachCountLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="attachSizeLimit != null" >
+        ATTACH_SIZE_LIMIT = #{attachSizeLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="singleSizeLimit != null" >
+        SINGLE_SIZE_LIMIT = #{singleSizeLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="fileSuffixLimit != null" >
+        FILE_SUFFIX_LIMIT = #{fileSuffixLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="syncType != null" >
+        SYNC_TYPE = #{syncType,jdbcType=VARCHAR},
+      </if>
+      <if test="maxFileNameLength != null" >
+        MAX_FILE_NAME_LENGTH = #{maxFileNameLength,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ATTACH_TYPE_ID = #{attachTypeId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hichlink.easyweb.attachment.entity.AttachmentType" >
+    update ATTACHMENT_TYPE
+    set ATTACH_TYPE_NAME = #{attachTypeName,jdbcType=VARCHAR},
+      ATTACH_TYPE_DESC = #{attachTypeDesc,jdbcType=VARCHAR},
+      ATTACH_COUNT_LIMIT = #{attachCountLimit,jdbcType=DECIMAL},
+      ATTACH_SIZE_LIMIT = #{attachSizeLimit,jdbcType=DECIMAL},
+      SINGLE_SIZE_LIMIT = #{singleSizeLimit,jdbcType=DECIMAL},
+      FILE_SUFFIX_LIMIT = #{fileSuffixLimit,jdbcType=VARCHAR},
+      SYNC_TYPE = #{syncType,jdbcType=VARCHAR},
+      MAX_FILE_NAME_LENGTH = #{maxFileNameLength,jdbcType=DECIMAL}
+    where ATTACH_TYPE_ID = #{attachTypeId,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="list" resultMap="BaseResultMap" parameterType="com.hichlink.easyweb.attachment.entity.AttachmentType">
+<![CDATA[
+    SELECT
+            ATTACH_TYPE_ID, 
+            ATTACH_TYPE_NAME, 
+            ATTACH_TYPE_DESC, 
+            ATTACH_COUNT_LIMIT, 
+            ATTACH_SIZE_LIMIT, 
+            SINGLE_SIZE_LIMIT, 
+            FILE_SUFFIX_LIMIT,
+            SYNC_TYPE,
+            MAX_FILE_NAME_LENGTH
+    FROM ATTACHMENT_TYPE
+]]>
+<where>
+		1=1
+		<if test="attachTypeId != null and  attachTypeId!= ''">
+				and ATTACH_TYPE_ID = #{attachTypeId}
+		</if>
+		<if test="attachTypeName != null and  attachTypeName!= ''">
+				and ATTACH_TYPE_NAME = #{attachTypeName}
+		</if>
+		<if test="attachTypeDesc != null and  attachTypeDesc!= ''">
+				and ATTACH_TYPE_DESC = #{attachTypeDesc}
+		</if>
+		<if test="attachCountLimit != null and  attachCountLimit!= ''">
+				and ATTACH_COUNT_LIMIT = #{attachCountLimit}
+		</if>
+		<if test="attachSizeLimit != null and  attachSizeLimit!= 0">
+				and ATTACH_SIZE_LIMIT = #{attachSizeLimit}
+		</if>
+		<if test="singleSizeLimit != null and  singleSizeLimit!= 0">
+				and SINGLE_SIZE_LIMIT = #{singleSizeLimit}
+		</if>
+		<if test="fileSuffixLimit != null and  fileSuffixLimit!= 0">
+				and FILE_SUFFIX_LIMIT = #{fileSuffixLimit}
+		</if>
+	</where>
+</select>
+</mapper>

@@ -1,15 +1,15 @@
-package com.aspire.webbas.client;
+package com.hichlink.easyweb.client;
 
 import java.net.MalformedURLException;
 import java.util.List;
 import java.util.Map;
 
-import com.aspire.webbas.client.config.PortalClientConfig;
-import com.aspire.webbas.portal.common.authapi.AuthResult;
-import com.aspire.webbas.portal.common.authapi.PortalClient;
-import com.aspire.webbas.portal.common.entity.Department;
-import com.aspire.webbas.portal.common.entity.Role;
-import com.aspire.webbas.portal.common.entity.Staff;
+import com.hichlink.easyweb.client.config.PortalClientConfig;
+import com.hichlink.easyweb.portal.common.authapi.AuthResult;
+import com.hichlink.easyweb.portal.common.authapi.PortalClient;
+import com.hichlink.easyweb.portal.common.entity.Department;
+import com.hichlink.easyweb.portal.common.entity.Role;
+import com.hichlink.easyweb.portal.common.entity.Staff;
 import com.caucho.hessian.client.HessianProxyFactory;
 
 public class AuthProxy implements PortalClient{

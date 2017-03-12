@@ -1,9 +1,9 @@
-package com.aspire.webbas.portal.common.dao;
+package com.hichlink.easyweb.portal.common.dao;
 
 import java.util.List;
 import java.util.Map;
 
-import com.aspire.webbas.portal.common.entity.Resource;
+import com.hichlink.easyweb.portal.common.entity.Resource;
 
 public interface ResourceDao {
 

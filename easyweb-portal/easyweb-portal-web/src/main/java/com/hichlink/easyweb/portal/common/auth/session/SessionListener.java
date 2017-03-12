@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.auth.session;
+package com.hichlink.easyweb.portal.common.auth.session;
 
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;

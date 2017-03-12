@@ -1,10 +1,10 @@
-package com.aspire.webbas.client.config;
+package com.hichlink.easyweb.client.config;
 
 import org.apache.commons.configuration.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aspire.webbas.configuration.config.ConfigurationHelper;
+import com.hichlink.easyweb.configuration.config.ConfigurationHelper;
 
 public class PortalClientConfig {
 

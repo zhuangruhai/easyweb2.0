@@ -1,4 +1,4 @@
-package com.aspire.webbas.client.filter;
+package com.hichlink.easyweb.client.filter;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

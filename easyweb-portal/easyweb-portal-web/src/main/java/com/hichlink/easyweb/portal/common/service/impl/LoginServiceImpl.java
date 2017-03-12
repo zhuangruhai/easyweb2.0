@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.service.impl;
+package com.hichlink.easyweb.portal.common.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,14 +11,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.aspire.webbas.portal.common.auth.session.SessionContext;
-import com.aspire.webbas.portal.common.dao.DepartmentDao;
-import com.aspire.webbas.portal.common.dao.StaffDao;
-import com.aspire.webbas.portal.common.entity.Department;
-import com.aspire.webbas.portal.common.entity.Staff;
-import com.aspire.webbas.portal.common.entity.StaffExtendProperty;
-import com.aspire.webbas.portal.common.service.LoginService;
-import com.aspire.webbas.portal.common.util.PasswordAdapter;
+import com.hichlink.easyweb.portal.common.auth.session.SessionContext;
+import com.hichlink.easyweb.portal.common.dao.DepartmentDao;
+import com.hichlink.easyweb.portal.common.dao.StaffDao;
+import com.hichlink.easyweb.portal.common.entity.Department;
+import com.hichlink.easyweb.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.entity.StaffExtendProperty;
+import com.hichlink.easyweb.portal.common.service.LoginService;
+import com.hichlink.easyweb.portal.common.util.PasswordAdapter;
 
 
 @Service("loginService")

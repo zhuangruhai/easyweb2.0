@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.service.impl;
+package com.hichlink.easyweb.portal.common.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,20 +7,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.aspire.webbas.portal.common.cache.AuthCache;
-import com.aspire.webbas.portal.common.dao.OperationAddressDao;
-import com.aspire.webbas.portal.common.dao.OperationDao;
-import com.aspire.webbas.portal.common.dao.ResourceDao;
-import com.aspire.webbas.portal.common.entity.Operation;
-import com.aspire.webbas.portal.common.entity.OperationAddress;
-import com.aspire.webbas.portal.common.entity.Resource;
-import com.aspire.webbas.portal.common.service.AuthService;
+import com.hichlink.easyweb.portal.common.cache.AuthCache;
+import com.hichlink.easyweb.portal.common.dao.OperationAddressDao;
+import com.hichlink.easyweb.portal.common.dao.OperationDao;
+import com.hichlink.easyweb.portal.common.dao.ResourceDao;
+import com.hichlink.easyweb.portal.common.entity.Operation;
+import com.hichlink.easyweb.portal.common.entity.OperationAddress;
+import com.hichlink.easyweb.portal.common.service.AuthService;
 
 @Service("authService")
 public class AuthServiceImpl implements AuthService {

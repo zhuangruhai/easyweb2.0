@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.modules.authapi;
+package com.hichlink.easyweb.portal.modules.authapi;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,22 +9,22 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aspire.webbas.core.util.SpringContextHolder;
-import com.aspire.webbas.portal.common.auth.session.SessionContext;
-import com.aspire.webbas.portal.common.authapi.AuthConstant;
-import com.aspire.webbas.portal.common.authapi.AuthResult;
-import com.aspire.webbas.portal.common.authapi.PortalClient;
-import com.aspire.webbas.portal.common.entity.Department;
-import com.aspire.webbas.portal.common.entity.Role;
-import com.aspire.webbas.portal.common.entity.Staff;
-import com.aspire.webbas.portal.common.service.AuthService;
-import com.aspire.webbas.portal.common.service.DepartmentService;
-import com.aspire.webbas.portal.common.service.RoleService;
-import com.aspire.webbas.portal.common.service.StaffService;
-import com.aspire.webbas.portal.common.service.impl.AuthServiceImpl;
-import com.aspire.webbas.portal.common.service.impl.DepartmentServiceImpl;
-import com.aspire.webbas.portal.common.service.impl.RoleServiceImpl;
-import com.aspire.webbas.portal.common.service.impl.StaffServiceImpl;
+import com.hichlink.easyweb.core.util.SpringContextHolder;
+import com.hichlink.easyweb.portal.common.auth.session.SessionContext;
+import com.hichlink.easyweb.portal.common.authapi.AuthConstant;
+import com.hichlink.easyweb.portal.common.authapi.AuthResult;
+import com.hichlink.easyweb.portal.common.authapi.PortalClient;
+import com.hichlink.easyweb.portal.common.entity.Department;
+import com.hichlink.easyweb.portal.common.entity.Role;
+import com.hichlink.easyweb.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.service.AuthService;
+import com.hichlink.easyweb.portal.common.service.DepartmentService;
+import com.hichlink.easyweb.portal.common.service.RoleService;
+import com.hichlink.easyweb.portal.common.service.StaffService;
+import com.hichlink.easyweb.portal.common.service.impl.AuthServiceImpl;
+import com.hichlink.easyweb.portal.common.service.impl.DepartmentServiceImpl;
+import com.hichlink.easyweb.portal.common.service.impl.RoleServiceImpl;
+import com.hichlink.easyweb.portal.common.service.impl.StaffServiceImpl;
 
 
 public class PortalClientImpl implements PortalClient{

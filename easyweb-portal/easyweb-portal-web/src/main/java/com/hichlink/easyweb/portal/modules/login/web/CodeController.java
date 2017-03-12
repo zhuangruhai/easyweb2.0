@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.modules.login.web;
+package com.hichlink.easyweb.portal.modules.login.web;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.aspire.webbas.portal.common.util.CheckCodeUtil;
+import com.hichlink.easyweb.portal.common.util.CheckCodeUtil;
 
 @Controller
 @RequestMapping("/code")

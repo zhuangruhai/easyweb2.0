@@ -1,9 +1,9 @@
-package com.aspire.webbas.portal.modules.login.web;
+package com.hichlink.easyweb.portal.modules.login.web;
 
-import static com.aspire.webbas.portal.common.config.Constants.COOKIE_VALID_MAXAGE;
-import static com.aspire.webbas.portal.common.config.Constants.COOKIE_VALID_PASSWD;
-import static com.aspire.webbas.portal.common.config.Constants.COOKIE_VALID_USERNAME;
-import static com.aspire.webbas.portal.common.config.Constants.TICKET_COOKIE_NAME;
+import static com.hichlink.easyweb.portal.common.config.Constants.COOKIE_VALID_MAXAGE;
+import static com.hichlink.easyweb.portal.common.config.Constants.COOKIE_VALID_PASSWD;
+import static com.hichlink.easyweb.portal.common.config.Constants.COOKIE_VALID_USERNAME;
+import static com.hichlink.easyweb.portal.common.config.Constants.TICKET_COOKIE_NAME;
 
 import java.util.HashMap;
 import java.util.List;
@@ -22,18 +22,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.aspire.webbas.core.web.BaseController;
-import com.aspire.webbas.portal.common.config.Config;
-import com.aspire.webbas.portal.common.entity.Department;
-import com.aspire.webbas.portal.common.entity.Staff;
-import com.aspire.webbas.portal.common.entity.StaffExtendProperty;
-import com.aspire.webbas.portal.common.service.DepartmentService;
-import com.aspire.webbas.portal.common.service.LoginService;
-import com.aspire.webbas.portal.common.service.StaffService;
-import com.aspire.webbas.portal.common.util.CheckCodeUtil;
-import com.aspire.webbas.portal.common.util.CookieUtil;
-import com.aspire.webbas.portal.common.util.RSAUtil;
-import com.aspire.webbas.portal.common.util.StaffUtil;
+import com.hichlink.easyweb.core.web.BaseController;
+import com.hichlink.easyweb.portal.common.config.Config;
+import com.hichlink.easyweb.portal.common.entity.Department;
+import com.hichlink.easyweb.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.entity.StaffExtendProperty;
+import com.hichlink.easyweb.portal.common.service.DepartmentService;
+import com.hichlink.easyweb.portal.common.service.LoginService;
+import com.hichlink.easyweb.portal.common.service.StaffService;
+import com.hichlink.easyweb.portal.common.util.CheckCodeUtil;
+import com.hichlink.easyweb.portal.common.util.CookieUtil;
+import com.hichlink.easyweb.portal.common.util.RSAUtil;
+import com.hichlink.easyweb.portal.common.util.StaffUtil;
 @Controller
 @RequestMapping("/portal")
 public class LoginController extends BaseController {

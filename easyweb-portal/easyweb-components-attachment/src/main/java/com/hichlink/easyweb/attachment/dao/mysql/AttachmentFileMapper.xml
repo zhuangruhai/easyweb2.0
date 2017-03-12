@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hichlink.easyweb.attachment.dao.AttachmentFileMapper" >
+  <resultMap id="BaseResultMap" type="com.hichlink.easyweb.attachment.entity.AttachmentFile" >
+    <id column="ATTACH_FILE_ID" property="attachFileId" jdbcType="VARCHAR" />
+    <result column="ATTACH_GROUP_ID" property="attachGroupId" jdbcType="VARCHAR" />
+    <result column="FILE_NAME" property="fileName" jdbcType="VARCHAR" />
+    <result column="FILE_SAVE_NAME" property="fileSaveName" jdbcType="VARCHAR" />
+    <result column="FILE_SIZE" property="fileSize" jdbcType="DECIMAL" />
+    <result column="FILE_TYPE" property="fileType" jdbcType="VARCHAR" />
+    <result column="ATTACH_FILE_STATUS" property="attachFileStatus" jdbcType="VARCHAR" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <!--例子:<if test="params['name'] != null and  params['name'] != ''">and name=#{params.name}</if>-->
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ATTACH_FILE_ID, ATTACH_GROUP_ID, FILE_NAME, FILE_SAVE_NAME, FILE_SIZE, FILE_TYPE, 
+    ATTACH_FILE_STATUS, CREATE_DATE
+  </sql>
+  <select id="pageQuery" resultMap="BaseResultMap" parameterType="com.hichlink.easyweb.core.pagination.mybatis.pager.Page" >
+    select
+    <include refid="Base_Column_List" />
+    from ATTACHMENT_FILE
+    <if test="params != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ATTACHMENT_FILE
+    where ATTACH_FILE_ID = #{attachFileId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ATTACHMENT_FILE
+    where ATTACH_FILE_ID = #{attachFileId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.hichlink.easyweb.attachment.entity.AttachmentFile" 
+  	useGeneratedKeys="true" keyProperty="attachFileId">
+    insert into ATTACHMENT_FILE (ATTACH_FILE_ID, ATTACH_GROUP_ID, FILE_NAME, 
+      FILE_SAVE_NAME, FILE_SIZE, FILE_TYPE, 
+      ATTACH_FILE_STATUS, CREATE_DATE)
+    values (#{attachFileId}, #{attachGroupId,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, 
+      #{fileSaveName,jdbcType=VARCHAR}, #{fileSize,jdbcType=DECIMAL}, #{fileType,jdbcType=VARCHAR}, 
+      #{attachFileStatus,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hichlink.easyweb.attachment.entity.AttachmentFile" >
+    insert into ATTACHMENT_FILE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="attachFileId != null" >
+        ATTACH_FILE_ID,
+      </if>
+      <if test="attachGroupId != null" >
+        ATTACH_GROUP_ID,
+      </if>
+      <if test="fileName != null" >
+        FILE_NAME,
+      </if>
+      <if test="fileSaveName != null" >
+        FILE_SAVE_NAME,
+      </if>
+      <if test="fileSize != null" >
+        FILE_SIZE,
+      </if>
+      <if test="fileType != null" >
+        FILE_TYPE,
+      </if>
+      <if test="attachFileStatus != null" >
+        ATTACH_FILE_STATUS,
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="attachFileId != null" >
+        #{attachFileId,jdbcType=VARCHAR},
+      </if>
+      <if test="attachGroupId != null" >
+        #{attachGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null" >
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSaveName != null" >
+        #{fileSaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSize != null" >
+        #{fileSize,jdbcType=DECIMAL},
+      </if>
+      <if test="fileType != null" >
+        #{fileType,jdbcType=VARCHAR},
+      </if>
+      <if test="attachFileStatus != null" >
+        #{attachFileStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hichlink.easyweb.attachment.entity.AttachmentFile" >
+    update ATTACHMENT_FILE
+    <set >
+      <if test="attachGroupId != null" >
+        ATTACH_GROUP_ID = #{attachGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null" >
+        FILE_NAME = #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSaveName != null" >
+        FILE_SAVE_NAME = #{fileSaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSize != null" >
+        FILE_SIZE = #{fileSize,jdbcType=DECIMAL},
+      </if>
+      <if test="fileType != null" >
+        FILE_TYPE = #{fileType,jdbcType=VARCHAR},
+      </if>
+      <if test="attachFileStatus != null" >
+        ATTACH_FILE_STATUS = #{attachFileStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE = #{createDate,jdbcType=DATE},
+      </if>
+    </set>
+    where ATTACH_FILE_ID = #{attachFileId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hichlink.easyweb.attachment.entity.AttachmentFile" >
+    update ATTACHMENT_FILE
+    set ATTACH_GROUP_ID = #{attachGroupId,jdbcType=VARCHAR},
+      FILE_NAME = #{fileName,jdbcType=VARCHAR},
+      FILE_SAVE_NAME = #{fileSaveName,jdbcType=VARCHAR},
+      FILE_SIZE = #{fileSize,jdbcType=DECIMAL},
+      FILE_TYPE = #{fileType,jdbcType=VARCHAR},
+      ATTACH_FILE_STATUS = #{attachFileStatus,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=DATE}
+    where ATTACH_FILE_ID = #{attachFileId,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="list" resultMap="BaseResultMap" parameterType="com.hichlink.easyweb.attachment.entity.AttachmentFile">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM ATTACHMENT_FILE
+	<where>
+		1=1
+		<if test="attachFileId != null and  attachFileId!= ''">
+				and ATTACH_FILE_ID = #{attachFileId}
+		</if>
+		<if test="attachGroupId != null and  attachGroupId!= ''">
+				and ATTACH_GROUP_ID = #{attachGroupId}
+		</if>
+		<if test="fileName != null and  fileName!= ''">
+				and FILE_NAME = #{fileName}
+		</if>
+		<if test="fileSaveName != null and  fileSaveName!= ''">
+				and FILE_SAVE_NAME = #{fileSaveName}
+		</if>
+		<if test="fileSize != null and  fileSize!= 0">
+				and FILE_SIZE = #{fileSize}
+		</if>
+		<if test="fileType != null and  fileType!= ''">
+				and FILE_TYPE = #{fileType}
+		</if>
+		<if test="attachFileStatus != null and  attachFileStatus!= ''">
+				and ATTACH_FILE_STATUS = #{attachFileStatus}
+		</if>
+		<if test="others['status'] != null and  others['status'] != ''">
+				and ATTACH_GROUP_ID IN (${others.groupIds})
+		</if>
+		<if test="others['groupIdArray'] != null">
+				and ATTACH_GROUP_ID IN 
+				<foreach collection="others.groupIdArray" item="item" open="(" separator=","
+					close=")">
+					#{item}
+				</foreach>
+		</if>
+	</where>
+</select>
+<delete id="deleteAttachmentFileByGroupId" parameterType="java.lang.String">
+<![CDATA[
+    DELETE  FROM  ATTACHMENT_FILE WHERE ATTACH_GROUP_ID = #value#
+]]>
+</delete> 
+
+<select id="listTempFile" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+<![CDATA[
+    SELECT
+            ATTACH_FILE_ID, 
+            ATTACH_GROUP_ID, 
+            FILE_NAME, 
+            FILE_SAVE_NAME, 
+            FILE_SIZE, 
+            FILE_TYPE, 
+            ATTACH_FILE_STATUS,
+            CREATE_DATE
+    FROM ATTACHMENT_FILE 
+    WHERE 
+    	ATTACH_FILE_STATUS = 'temp'
+    	AND CREATE_DATE < SYSDATE() - $value$
+]]>
+</select>
+</mapper>

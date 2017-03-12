@@ -1,5 +1,5 @@
 
-package com.aspire.webbas.portal.common.util;
+package com.hichlink.easyweb.portal.common.util;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
@@ -20,7 +20,7 @@ import javax.crypto.spec.PBEParameterSpec;
 
 import org.apache.commons.validator.GenericValidator;
 
-import com.aspire.webbas.portal.common.exception.PasswordException;
+import com.hichlink.easyweb.portal.common.exception.PasswordException;
 
 import sun.misc.BASE64Encoder;
 

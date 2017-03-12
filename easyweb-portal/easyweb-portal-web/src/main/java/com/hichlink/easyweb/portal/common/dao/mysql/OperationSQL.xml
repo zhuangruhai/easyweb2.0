@@ -2,9 +2,9 @@
     <!DOCTYPE mapper 
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.aspire.webbas.portal.common.dao.OperationDao">
+<mapper namespace="com.hichlink.easyweb.portal.common.dao.OperationDao">
     
-	<resultMap type="com.aspire.webbas.portal.common.entity.Operation" id="operationMap">		
+	<resultMap type="com.hichlink.easyweb.portal.common.entity.Operation" id="operationMap">		
 		<result property="resourceId" column="RESOURCE_ID" />
 		<result property="operationKey" column="OPERATION_KEY" />
 		<result property="dependKey" column="DEPEND_KEY" />		
@@ -16,16 +16,16 @@
 		<result property="domain" column="DOMAIN"/>
 	</resultMap>
 	
-	<resultMap type="com.aspire.webbas.portal.common.entity.Operation" id="operationKeyMap">		
+	<resultMap type="com.hichlink.easyweb.portal.common.entity.Operation" id="operationKeyMap">		
 		<result property="resourceId" column="RESOURCE_ID" />
 		<result property="operationKey" column="OPERATION_KEY" />
 	</resultMap>
-	<resultMap type="com.aspire.webbas.portal.common.entity.Operation" id="operationKeyAndResourceKeyMap">		
+	<resultMap type="com.hichlink.easyweb.portal.common.entity.Operation" id="operationKeyAndResourceKeyMap">		
 		<result property="resourceKey" column="RESOURCE_KEY" />
 		<result property="operationKey" column="OPERATION_KEY" />
 	</resultMap>
 	
-	<insert id="insertOperation" parameterType="com.aspire.webbas.portal.common.entity.Operation"
+	<insert id="insertOperation" parameterType="com.hichlink.easyweb.portal.common.entity.Operation"
 	    useGeneratedKeys="true" keyProperty="operationId">
 		<![CDATA[
 		INSERT  INTO SEC_OPERATION	(
@@ -52,7 +52,7 @@
 		]]>	
 	</insert>
 	
-	<update id="updateOperation" parameterType="com.aspire.webbas.portal.common.entity.Operation">
+	<update id="updateOperation" parameterType="com.hichlink.easyweb.portal.common.entity.Operation">
         UPDATE SEC_OPERATION
 	        SET OPERATION_NAME = #{operationName},
 	        OPERATION_DESC = #{operationDesc},
@@ -62,13 +62,13 @@
         	RESOURCE_ID = #{resourceId} AND OPERATION_KEY = #{operationKey}
     </update>
     
-	<delete id="deleteOperation" parameterType="com.aspire.webbas.portal.common.entity.Operation">
+	<delete id="deleteOperation" parameterType="com.hichlink.easyweb.portal.common.entity.Operation">
         DELETE FROM SEC_OPERATION
         WHERE RESOURCE_ID = #{resourceId} AND OPERATION_KEY = #{operationKey}
     </delete>
 
       <!--根据Id得到一个Role-->
-     <select id="findOperation" resultMap="operationMap"  parameterType="com.aspire.webbas.portal.common.entity.Operation">
+     <select id="findOperation" resultMap="operationMap"  parameterType="com.hichlink.easyweb.portal.common.entity.Operation">
 	  	 <![CDATA[
 			SELECT	
 				    RESOURCE_ID     ,
@@ -87,7 +87,7 @@
 			]]>	
       </select>
 	
-	  <select id="listOperation" resultMap="operationMap"  parameterType="com.aspire.webbas.portal.common.entity.Operation">    
+	  <select id="listOperation" resultMap="operationMap"  parameterType="com.hichlink.easyweb.portal.common.entity.Operation">    
 		<![CDATA[
 		SELECT	OPERATION_ID,
 			    RESOURCE_ID     ,

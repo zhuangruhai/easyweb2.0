@@ -1,7 +1,7 @@
 /**
 * 该文件由自动生成代码器生成
 */
-package com.aspire.webbas.portal.common.service;
+package com.hichlink.easyweb.portal.common.service;
 
 import java.util.List;
 
@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.aspire.webbas.core.pagination.mybatis.pager.Page;
-import com.aspire.webbas.portal.common.dao.PendTaskSettingMapper;
-import com.aspire.webbas.portal.common.entity.PendTaskSetting;
-import com.aspire.webbas.portal.common.entity.Staff;
-import com.aspire.webbas.portal.common.util.StaffUtil;
+import com.hichlink.easyweb.core.pagination.mybatis.pager.Page;
+import com.hichlink.easyweb.portal.common.dao.PendTaskSettingMapper;
+import com.hichlink.easyweb.portal.common.entity.PendTaskSetting;
+import com.hichlink.easyweb.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.util.StaffUtil;
 
 
 /**

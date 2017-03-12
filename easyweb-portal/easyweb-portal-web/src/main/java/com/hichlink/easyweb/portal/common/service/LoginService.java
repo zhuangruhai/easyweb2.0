@@ -1,11 +1,11 @@
-package com.aspire.webbas.portal.common.service;
+package com.hichlink.easyweb.portal.common.service;
 
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import com.aspire.webbas.portal.common.entity.Staff;
-import com.aspire.webbas.portal.common.entity.StaffExtendProperty;
+import com.hichlink.easyweb.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.entity.StaffExtendProperty;
 
 public interface LoginService {
 

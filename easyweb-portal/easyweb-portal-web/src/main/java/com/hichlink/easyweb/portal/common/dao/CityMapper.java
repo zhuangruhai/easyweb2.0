@@ -1,9 +1,9 @@
 /*** Auto generator by codegenerator 2014-12-04 17:53:44*/
-package com.aspire.webbas.portal.common.dao;
+package com.hichlink.easyweb.portal.common.dao;
 
 import java.util.List;
 
-import com.aspire.webbas.portal.common.entity.City;
+import com.hichlink.easyweb.portal.common.entity.City;
 
 public interface CityMapper {
     int deleteByPrimaryKey(Integer cityId);

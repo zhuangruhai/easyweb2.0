@@ -1,8 +1,8 @@
-package com.aspire.webbas.portal.common.dao;
+package com.hichlink.easyweb.portal.common.dao;
 
 import java.util.List;
 
-import com.aspire.webbas.portal.common.entity.ResourceCategory;
+import com.hichlink.easyweb.portal.common.entity.ResourceCategory;
 
 public interface ResourceCategoryDao {
 

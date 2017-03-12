@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.filter;
+package com.hichlink.easyweb.portal.common.filter;
 
 import java.io.IOException;
 
@@ -15,13 +15,13 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aspire.webbas.core.util.SpringContextHolder;
-import com.aspire.webbas.portal.common.auth.session.SessionContext;
-import com.aspire.webbas.portal.common.authapi.AuthConstant;
-import com.aspire.webbas.portal.common.authapi.AuthResult;
-import com.aspire.webbas.portal.common.entity.Staff;
-import com.aspire.webbas.portal.common.service.AuthService;
-import com.aspire.webbas.portal.common.service.impl.AuthServiceImpl;
+import com.hichlink.easyweb.core.util.SpringContextHolder;
+import com.hichlink.easyweb.portal.common.auth.session.SessionContext;
+import com.hichlink.easyweb.portal.common.authapi.AuthConstant;
+import com.hichlink.easyweb.portal.common.authapi.AuthResult;
+import com.hichlink.easyweb.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.service.AuthService;
+import com.hichlink.easyweb.portal.common.service.impl.AuthServiceImpl;
 import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;

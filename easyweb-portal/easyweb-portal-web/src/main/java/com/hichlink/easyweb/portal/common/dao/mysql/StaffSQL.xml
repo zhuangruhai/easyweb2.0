@@ -2,8 +2,8 @@
     <!DOCTYPE mapper 
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.aspire.webbas.portal.common.dao.StaffDao">
-	<resultMap type="com.aspire.webbas.portal.common.entity.Staff" id="StaffMap">		
+<mapper namespace="com.hichlink.easyweb.portal.common.dao.StaffDao">
+	<resultMap type="com.hichlink.easyweb.portal.common.entity.Staff" id="StaffMap">		
 		<result property="staffId" column="STAFF_ID"/>
         <result property="loginName" column="LOGIN_NAME"/>
         <result property="departmentId" column="DEPARTMENT_ID"/>
@@ -22,20 +22,20 @@
         <result property="lastUpdateDate" column="LAST_UPDATE_DATE"/>
         <result property="cityId" column="CITY_ID"/>
 	</resultMap>
-	<resultMap id="SecStaffDepartmentRoleKeyMap" type="com.aspire.webbas.portal.common.entity.SecStaffDepartmentRoleKey" >
+	<resultMap id="SecStaffDepartmentRoleKeyMap" type="com.hichlink.easyweb.portal.common.entity.SecStaffDepartmentRoleKey" >
     <id column="STAFF_ID" property="staffId" jdbcType="VARCHAR" />
     <id column="DEPARTMENT_ID" property="departmentId" jdbcType="VARCHAR" />
     <id column="ROLE_ID" property="roleId" jdbcType="DECIMAL" />
   </resultMap>
 	
-	<resultMap id="SecStaffExtendPropertyResult" type="com.aspire.webbas.portal.common.entity.StaffExtendProperty">
+	<resultMap id="SecStaffExtendPropertyResult" type="com.hichlink.easyweb.portal.common.entity.StaffExtendProperty">
         <result property="staffId" column="STAFF_ID"/>
         <result property="property" column="PROPERTY"/>
         <result property="value" column="VALUE"/>
     </resultMap>
     
 	<insert id="insertStaff" 
-	        parameterType="com.aspire.webbas.portal.common.entity.Staff"
+	        parameterType="com.hichlink.easyweb.portal.common.entity.Staff"
 	    useGeneratedKeys="true" keyProperty="staffId">
         <![CDATA[
 		INSERT INTO SEC_STAFF  (
@@ -77,7 +77,7 @@
     </insert>
     
   	<update id="updateStaff" 
-  	        parameterType="com.aspire.webbas.portal.common.entity.Staff">
+  	        parameterType="com.hichlink.easyweb.portal.common.entity.Staff">
         <![CDATA[
 		UPDATE SEC_STAFF     
 		SET    LOGIN_NAME       = #{loginName},         
@@ -100,7 +100,7 @@
     </update>
     
     <update id="updateStaffPassword" 
-  	        parameterType="com.aspire.webbas.portal.common.entity.Staff">
+  	        parameterType="com.hichlink.easyweb.portal.common.entity.Staff">
         <![CDATA[
 		UPDATE SEC_STAFF     
 		SET             
@@ -152,7 +152,7 @@
     
     <select id="findStaffByNameAndPassword" 
             resultMap="StaffMap" 
-            parameterType="com.aspire.webbas.portal.common.entity.Staff">
+            parameterType="com.hichlink.easyweb.portal.common.entity.Staff">
         <![CDATA[
 		SELECT *
 		FROM   SEC_STAFF             
@@ -184,7 +184,7 @@
 		
     </select>
     <insert id="insertStaffExtendProperties" 
-            parameterType="com.aspire.webbas.portal.common.entity.StaffExtendProperty">
+            parameterType="com.hichlink.easyweb.portal.common.entity.StaffExtendProperty">
         <![CDATA[
 		INSERT INTO SEC_STAFF_EXTEND_PROPERTY (
 		       STAFF_ID	    ,
@@ -216,7 +216,7 @@
     
     <select id="listStaff" 
             resultMap="StaffMap" 
-            parameterType="com.aspire.webbas.core.pagination.mybatis.pager.Page">
+            parameterType="com.hichlink.easyweb.core.pagination.mybatis.pager.Page">
 
         SELECT *
         FROM SEC_STAFF

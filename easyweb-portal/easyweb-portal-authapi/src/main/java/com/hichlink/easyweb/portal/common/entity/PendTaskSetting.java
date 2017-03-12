@@ -1,5 +1,5 @@
 /*** Auto generator by codegenerator 2014-06-20 16:55:03*/
-package com.aspire.webbas.portal.common.entity;
+package com.hichlink.easyweb.portal.common.entity;
 
 public class PendTaskSetting {
 	public static final String YES = "1";

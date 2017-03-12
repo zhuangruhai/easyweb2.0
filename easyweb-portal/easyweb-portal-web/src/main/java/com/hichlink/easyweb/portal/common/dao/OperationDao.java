@@ -1,8 +1,8 @@
-package com.aspire.webbas.portal.common.dao;
+package com.hichlink.easyweb.portal.common.dao;
 
 import java.util.List;
 
-import com.aspire.webbas.portal.common.entity.Operation;
+import com.hichlink.easyweb.portal.common.entity.Operation;
 
 public interface OperationDao {
 

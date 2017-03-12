@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.modules.authmgt.web;
+package com.hichlink.easyweb.portal.modules.authmgt.web;
 
 import java.util.List;
 import java.util.Map;
@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.aspire.webbas.core.web.BaseController;
-import com.aspire.webbas.portal.common.entity.Department;
-import com.aspire.webbas.portal.common.entity.Role;
-import com.aspire.webbas.portal.common.entity.Staff;
-import com.aspire.webbas.portal.common.service.DepartmentService;
-import com.aspire.webbas.portal.common.service.RoleService;
-import com.aspire.webbas.portal.common.service.StaffService;
-import com.aspire.webbas.portal.common.util.StaffUtil;
+import com.hichlink.easyweb.core.web.BaseController;
+import com.hichlink.easyweb.portal.common.entity.Department;
+import com.hichlink.easyweb.portal.common.entity.Role;
+import com.hichlink.easyweb.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.service.DepartmentService;
+import com.hichlink.easyweb.portal.common.service.RoleService;
+import com.hichlink.easyweb.portal.common.service.StaffService;
+import com.hichlink.easyweb.portal.common.util.StaffUtil;
 
 @Controller
 @RequestMapping("/department")

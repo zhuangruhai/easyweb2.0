@@ -2,8 +2,8 @@
     <!DOCTYPE mapper 
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.aspire.webbas.portal.common.dao.OperationAddressDao">
-	<resultMap type="com.aspire.webbas.portal.common.entity.OperationAddress" id="operationAddressMap">		
+<mapper namespace="com.hichlink.easyweb.portal.common.dao.OperationAddressDao">
+	<resultMap type="com.hichlink.easyweb.portal.common.entity.OperationAddress" id="operationAddressMap">		
 		<result property="addressId" column="ADDRESS_ID"/>
         <result property="resourceId" column="RESOURCE_ID"/>
         <result property="operationKey" column="OPERATION_KEY"/>
@@ -19,7 +19,7 @@
         <result property="domain" column="DOMAIN"/>
 	</resultMap>
 	
-	<insert id="insertOperationAddress" parameterType="com.aspire.webbas.portal.common.entity.OperationAddress"
+	<insert id="insertOperationAddress" parameterType="com.hichlink.easyweb.portal.common.entity.OperationAddress"
 	     useGeneratedKeys="true" keyProperty="addressId">
         <![CDATA[
 		INSERT  INTO SEC_OPERATION_ADDRESS(
@@ -53,7 +53,7 @@
     </insert>
     
     <delete id="deleteOperationAddress" 
-            parameterType="com.aspire.webbas.portal.common.entity.OperationAddress">
+            parameterType="com.hichlink.easyweb.portal.common.entity.OperationAddress">
         DELETE FROM SEC_OPERATION_ADDRESS
         WHERE RESOURCE_ID=#{resourceId} AND OPERATION_KEY=#{operationKey}
     </delete>
@@ -84,7 +84,7 @@
       
       <select id="listOperationAddress" 
               resultMap="operationAddressMap" 
-              parameterType="com.aspire.webbas.portal.common.entity.OperationAddress">
+              parameterType="com.hichlink.easyweb.portal.common.entity.OperationAddress">
         <![CDATA[
 		SELECT  
 			    ADDRESS_ID            ,

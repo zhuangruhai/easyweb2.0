@@ -1,5 +1,5 @@
 /*** Auto generator by codegenerator 2014-12-04 17:53:30*/
-package com.aspire.webbas.portal.common.entity;
+package com.hichlink.easyweb.portal.common.entity;
 
 
 public class City {

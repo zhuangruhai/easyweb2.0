@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.util;
+package com.hichlink.easyweb.portal.common.util;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -6,9 +6,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.aspire.webbas.portal.common.auth.session.SessionContext;
-import com.aspire.webbas.portal.common.entity.Staff;
-import com.aspire.webbas.portal.common.service.LoginService;
+import com.hichlink.easyweb.portal.common.auth.session.SessionContext;
+import com.hichlink.easyweb.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.service.LoginService;
 
 /**
  * 

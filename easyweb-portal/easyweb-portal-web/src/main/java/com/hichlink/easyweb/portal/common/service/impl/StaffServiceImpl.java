@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.service.impl;
+package com.hichlink.easyweb.portal.common.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,18 +10,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import com.aspire.webbas.core.pagination.mybatis.pager.Page;
-import com.aspire.webbas.core.util.StringTools;
-import com.aspire.webbas.portal.common.dao.DepartmentDao;
-import com.aspire.webbas.portal.common.dao.RoleDao;
-import com.aspire.webbas.portal.common.dao.StaffDao;
-import com.aspire.webbas.portal.common.entity.Department;
-import com.aspire.webbas.portal.common.entity.Role;
-import com.aspire.webbas.portal.common.entity.SecStaffDepartmentRoleKey;
-import com.aspire.webbas.portal.common.entity.Staff;
-import com.aspire.webbas.portal.common.entity.StaffExtendProperty;
-import com.aspire.webbas.portal.common.service.StaffService;
-import com.aspire.webbas.portal.common.util.PasswordAdapter;
+import com.hichlink.easyweb.core.pagination.mybatis.pager.Page;
+import com.hichlink.easyweb.core.util.StringTools;
+import com.hichlink.easyweb.portal.common.dao.DepartmentDao;
+import com.hichlink.easyweb.portal.common.dao.RoleDao;
+import com.hichlink.easyweb.portal.common.dao.StaffDao;
+import com.hichlink.easyweb.portal.common.entity.Department;
+import com.hichlink.easyweb.portal.common.entity.Role;
+import com.hichlink.easyweb.portal.common.entity.SecStaffDepartmentRoleKey;
+import com.hichlink.easyweb.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.entity.StaffExtendProperty;
+import com.hichlink.easyweb.portal.common.service.StaffService;
+import com.hichlink.easyweb.portal.common.util.PasswordAdapter;
 
 @Service("staffService")
 public class StaffServiceImpl implements StaffService{

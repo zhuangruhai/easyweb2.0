@@ -2,8 +2,8 @@
     <!DOCTYPE mapper 
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.aspire.webbas.portal.common.dao.ResourceCategoryDao">
-	<resultMap type="com.aspire.webbas.portal.common.entity.ResourceCategory" id="ResourceCategoryMap">		
+<mapper namespace="com.hichlink.easyweb.portal.common.dao.ResourceCategoryDao">
+	<resultMap type="com.hichlink.easyweb.portal.common.entity.ResourceCategory" id="ResourceCategoryMap">		
 		<result property="categoryId" column="CATEGORY_ID"/>   
 		<result property="parentId" column="PARENT_ID"/>       
 		<result property="categoryName" column="CATEGORY_NAME"/> 
@@ -14,7 +14,7 @@
 		<result property="domain" column="DOMAIN"/>
 	</resultMap>
 	
-	<insert id="insertResourceCategory" parameterType="com.aspire.webbas.portal.common.entity.ResourceCategory"
+	<insert id="insertResourceCategory" parameterType="com.hichlink.easyweb.portal.common.entity.ResourceCategory"
 		useGeneratedKeys="true" keyProperty="categoryId">
 	   	<![CDATA[
 		INSERT  INTO SEC_RESOURCE_CATEGORY (
@@ -37,7 +37,7 @@
 		]]>       
   	</insert>
 	
-	<update id="updateResourceCategory" parameterType="com.aspire.webbas.portal.common.entity.ResourceCategory">
+	<update id="updateResourceCategory" parameterType="com.hichlink.easyweb.portal.common.entity.ResourceCategory">
         <![CDATA[
 		    UPDATE SEC_RESOURCE_CATEGORY 
 		    SET
@@ -66,7 +66,7 @@
   		]]>
   	</delete>
   	
-	<select id="findResourceCategory" resultMap="ResourceCategoryMap" parameterType="com.aspire.webbas.portal.common.entity.ResourceCategory">
+	<select id="findResourceCategory" resultMap="ResourceCategoryMap" parameterType="com.hichlink.easyweb.portal.common.entity.ResourceCategory">
         SELECT *
         FROM SEC_RESOURCE_CATEGORY
         WHERE CATEGORY_ID = #{resourceCategoryId}
@@ -78,7 +78,7 @@
         WHERE CATEGORY_KEY = #{resourceCategoryKey}
     </select>
     
-    <select id="listRootResourceCategory" resultMap="ResourceCategoryMap" parameterType="com.aspire.webbas.portal.common.entity.ResourceCategory">    
+    <select id="listRootResourceCategory" resultMap="ResourceCategoryMap" parameterType="com.hichlink.easyweb.portal.common.entity.ResourceCategory">    
 		<![CDATA[
 		SELECT *
 		FROM   SEC_RESOURCE_CATEGORY   
@@ -87,7 +87,7 @@
 		]]>   
         order by ORDER_KEY         
 	</select>
-    <select id="listResourceCategory" resultMap="ResourceCategoryMap" parameterType="com.aspire.webbas.portal.common.entity.ResourceCategory">    
+    <select id="listResourceCategory" resultMap="ResourceCategoryMap" parameterType="com.hichlink.easyweb.portal.common.entity.ResourceCategory">    
 		<![CDATA[
 		SELECT *
 		FROM   SEC_RESOURCE_CATEGORY   

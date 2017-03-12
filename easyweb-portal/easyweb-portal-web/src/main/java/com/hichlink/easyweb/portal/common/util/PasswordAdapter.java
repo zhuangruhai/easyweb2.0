@@ -1,7 +1,7 @@
-package com.aspire.webbas.portal.common.util;
+package com.hichlink.easyweb.portal.common.util;
 
-import com.aspire.webbas.portal.common.config.Config;
-import com.aspire.webbas.portal.common.entity.Staff;
+import com.hichlink.easyweb.portal.common.config.Config;
+import com.hichlink.easyweb.portal.common.entity.Staff;
 
 public class PasswordAdapter {
 

@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.util;
+package com.hichlink.easyweb.portal.common.util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,12 +29,10 @@ import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.time.DateFormatUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.aspire.webbas.configuration.config.ConfigurationHelper;
 
 
 /**
@@ -101,7 +99,7 @@ public class RSAUtil {
      * 返回生成/读取的密钥对文件的路径。
      */
     private static String getRSAPairFilePath() {
-        String urlPath = ConfigurationHelper.getBasePath();
+        String urlPath = System.getProperty("user.dir");
         return  urlPath +RSA_PAIR_FILENAME;
     }
 

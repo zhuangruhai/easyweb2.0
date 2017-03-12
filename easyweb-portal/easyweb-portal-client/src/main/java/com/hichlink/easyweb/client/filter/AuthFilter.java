@@ -1,8 +1,8 @@
-package com.aspire.webbas.client.filter;
+package com.hichlink.easyweb.client.filter;
 
-import static com.aspire.webbas.client.filter.TicketUtil.SESSION_TICKET;
-import static com.aspire.webbas.client.filter.TicketUtil.findTicket;
-import static com.aspire.webbas.client.filter.TicketUtil.sendPrivacyCookie;
+import static com.hichlink.easyweb.client.filter.TicketUtil.SESSION_TICKET;
+import static com.hichlink.easyweb.client.filter.TicketUtil.findTicket;
+import static com.hichlink.easyweb.client.filter.TicketUtil.sendPrivacyCookie;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -21,14 +21,14 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aspire.webbas.client.AuthProxy;
-import com.aspire.webbas.client.config.PortalClientConfig;
-import com.aspire.webbas.portal.common.authapi.AuthConstant;
-import com.aspire.webbas.portal.common.authapi.AuthResult;
-import com.aspire.webbas.portal.common.entity.Staff;
 import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hichlink.easyweb.client.AuthProxy;
+import com.hichlink.easyweb.client.config.PortalClientConfig;
+import com.hichlink.easyweb.portal.common.authapi.AuthConstant;
+import com.hichlink.easyweb.portal.common.authapi.AuthResult;
+import com.hichlink.easyweb.portal.common.entity.Staff;
 
 public class AuthFilter implements Filter {
 

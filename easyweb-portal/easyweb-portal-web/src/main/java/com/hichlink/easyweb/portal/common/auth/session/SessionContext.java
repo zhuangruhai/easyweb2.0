@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.auth.session;
+package com.hichlink.easyweb.portal.common.auth.session;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

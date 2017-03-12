@@ -1,4 +1,4 @@
-package com.aspire.webbas.portal.common.config;
+package com.hichlink.easyweb.portal.common.config;
 
 public class Constants {
 	private Constants(){
