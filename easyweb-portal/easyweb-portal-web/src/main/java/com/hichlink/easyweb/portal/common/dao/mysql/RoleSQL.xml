@@ -60,7 +60,7 @@
 		]]>	
 	</update>	
 	
-	<delete id="deleteRole" parameterType="string">
+	<delete id="deleteRole" parameterType="long">
         DELETE FROM SEC_ROLE
         WHERE
         	CAN_MODIFY = 1
@@ -68,7 +68,7 @@
     </delete>
 
       <!--根据Id得到一个Role-->
-     <select id="findRole" resultMap="RoleMap"  parameterType="string">
+     <select id="findRole" resultMap="RoleMap"  parameterType="long">
 	  	 <![CDATA[
 		  	 SELECT *
 	          FROM  sec_role 
@@ -149,7 +149,7 @@
 	
 	<select id="listStaffRoles" 
 	        resultMap="RoleMap" 
-	        parameterType="string">
+	        parameterType="long">
 		<![CDATA[
 		SELECT 	ROLE.*
 		FROM   	SEC_ROLE	ROLE,
@@ -164,7 +164,7 @@
   	
   	<select id="listDepartmentRoles" 
   	        resultMap="RoleMap" 
-  	        parameterType="string">
+  	        parameterType="long">
 		<![CDATA[
 		SELECT  ROLE.*
 		FROM	SEC_ROLE	ROLE,
@@ -204,7 +204,7 @@
 	</delete>	
 	
 	<delete id="deleteRoleResourceOperationById" 
-	        parameterType="string">
+	        parameterType="long">
 		<![CDATA[
 		DELETE	FROM SEC_ROLE_RESOURCE_OPERATION
 		WHERE	ROLE_ID     = #{roleId}

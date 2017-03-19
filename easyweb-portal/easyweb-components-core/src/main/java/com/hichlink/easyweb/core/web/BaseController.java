@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringEscapeUtils;
+import org.eclipse.jdt.internal.compiler.ast.ThisReference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -31,6 +34,7 @@ import com.hichlink.easyweb.core.util.StringTools;
  * 
  */
 public class BaseController {
+	protected final Logger LOG = LoggerFactory.getLogger(this.getClass());
 	protected static final String UTF8 = "UTF-8";
 	/**
 	 * 列表分页结果输出

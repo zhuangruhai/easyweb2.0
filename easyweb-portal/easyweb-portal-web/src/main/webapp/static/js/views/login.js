@@ -126,11 +126,7 @@ $()
 									success : function(data) {
 										if (data.success) {
 											// 跳转
-											dispatch(ctxPaths
-													+ 'pages/main.shtml'
-													+ ((requestUrl && requestUrl != 'null') ? '?requestUrl='
-															+ requestUrl
-															: ''));
+											window.location.href=ctxPaths + '/';
 										} else {
 											if (data.message) {
 												errorTip(data.message);

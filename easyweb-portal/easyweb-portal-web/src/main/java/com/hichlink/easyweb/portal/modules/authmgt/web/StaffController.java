@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.hichlink.easyweb.core.pagination.mybatis.pager.Page;
 import com.hichlink.easyweb.core.web.BaseController;
@@ -45,6 +46,26 @@ public class StaffController extends BaseController {
 	@Autowired
 	@Qualifier("cityService")
 	private CityService cityService;
+
+	@RequestMapping(value = "/view")
+	public ModelAndView view() {
+		return new ModelAndView("staff");
+	}
+
+	@RequestMapping(value = "/viewModifyPwd")
+	public ModelAndView viewModifyPwd() {
+		return new ModelAndView("modifyPwd");
+	}
+
+	@RequestMapping(value = "/viewModifyInfo")
+	public ModelAndView viewModifyInfo() {
+		return new ModelAndView("modifyInfo");
+	}
+
+	@RequestMapping(value = "/viewSelfConfigSetting")
+	public ModelAndView viewSelfConfigSetting() {
+		return new ModelAndView("selfConfigSetting");
+	}
 
 	@RequestMapping(value = "/createStaff.ajax", method = RequestMethod.POST)
 	@ResponseBody

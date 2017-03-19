@@ -119,7 +119,7 @@
         </dynamic>
         -->   
 	</select>
-	<select id="listPathFromRootToCurrentDepartmentId" resultMap="DepartmentMap" parameterType="string">
+	<select id="listPathFromRootToCurrentDepartmentId" resultMap="DepartmentMap" parameterType="long">
        call sec_department_list_root(#{departmentId},0)
     </select>
     

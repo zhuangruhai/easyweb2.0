@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.hichlink.easyweb.core.pagination.mybatis.pager.Page;
 import com.hichlink.easyweb.core.web.BaseController;
@@ -29,6 +30,16 @@ public class RoleController extends BaseController {
 	@Autowired
 	@Qualifier("roleService")
 	private RoleService roleService;
+
+	@RequestMapping(value = "/view")
+	public ModelAndView view() {
+		return new ModelAndView("role");
+	}
+
+	@RequestMapping(value = "/viewRoleSetting")
+	public ModelAndView viewRoleSetting() {
+		return new ModelAndView("roleSetting");
+	}
 
 	@RequestMapping(value = "/updateRole.ajax", method = RequestMethod.POST)
 	@ResponseBody
@@ -165,8 +176,7 @@ public class RoleController extends BaseController {
 			return success(tree);
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
+			logger.error(e.getMessage(), e);
 			return fail(e.getMessage());
 		}
 	}

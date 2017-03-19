@@ -160,7 +160,7 @@
         ]]>
     </select>
     
-    <select id="listOperationByRoleId" resultMap="operationMap" parameterType="java.lang.String">
+    <select id="listOperationByRoleId" resultMap="operationMap" parameterType="long">
         SELECT  O.OPERATION_ID,
 			    O.RESOURCE_ID     ,
 		        O.OPERATION_KEY   ,

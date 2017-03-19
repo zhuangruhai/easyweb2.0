@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.hichlink.easyweb.core.web.BaseController;
 import com.hichlink.easyweb.portal.common.entity.Department;
@@ -37,7 +38,10 @@ public class DepartmentController extends BaseController {
 	@Autowired
 	@Qualifier("staffService")
 	private StaffService staffService;
-
+	@RequestMapping(value = "/view")
+	public ModelAndView view() {
+		return new ModelAndView("dept");
+	}
 	@RequestMapping(value = "/findDepartment.ajax")
 	@ResponseBody
 	public Map<String, ? extends Object> findRoles(Long departmentId) {

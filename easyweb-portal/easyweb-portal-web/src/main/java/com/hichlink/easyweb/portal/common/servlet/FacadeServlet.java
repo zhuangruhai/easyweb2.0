@@ -33,6 +33,7 @@ import com.hichlink.easyweb.portal.common.service.CityService;
 import com.hichlink.easyweb.portal.common.service.DepartmentService;
 import com.hichlink.easyweb.portal.common.service.LoginService;
 import com.hichlink.easyweb.portal.common.service.StaffService;
+import com.hichlink.easyweb.portal.common.service.impl.CityServiceImpl;
 import com.hichlink.easyweb.portal.common.service.impl.DepartmentServiceImpl;
 import com.hichlink.easyweb.portal.common.service.impl.LoginServiceImpl;
 import com.hichlink.easyweb.portal.common.service.impl.StaffServiceImpl;
@@ -58,6 +59,8 @@ public class FacadeServlet extends BaseServlet {
 	private LoginService loginService;
 	private StaffService staffService;
 	private DepartmentService departmentService;
+	@Autowired
+	private CityService cityService;
 	@Autowired
 	private Config config;
 	private boolean autoLogin(HttpServletRequest request, HttpServletResponse response) {
@@ -146,7 +149,7 @@ public class FacadeServlet extends BaseServlet {
 	}
 
 	public void listCity(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		CityService cityService = SpringContextHolder.getBean(CityService.class);
+		//cityService = SpringContextHolder.getBean(CityServiceImpl.class);
 		List<City> list = cityService.list(null);
 		StringBuilder sb = new StringBuilder();
 		sb.append("var citys=" + JSON.toJSONString(list) + ";");
