@@ -860,6 +860,6 @@ em {
 		src="${ctx}/static/js/plugins/fuelux/fuelux.tree.min.js"></script>
 	<script type="text/javascript"
 		src="${ctx}/static/js/custom/mult-select2.js"></script>
-	<script type="text/javascript" src="${ctx}/static/js/views/dept.js?12"></script>
+	<script type="text/javascript" src="${ctx}/static/js/views/dept.js?12454"></script>
 </body>
 </html>

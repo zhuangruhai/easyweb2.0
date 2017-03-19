@@ -167,10 +167,11 @@ function init() {
 	// 初始化组织树
 	refreshDeptTree();
 
-	jQuery('#role-table').jqGrid( {
+	var grid_selector = "#role-table";
+	jqGrid_init($(grid_selector), null, {
 		url : '',
 		datatype : "json",
-		height : 410,
+		height : 350,
 		// width: "100%",
 			colNames : ['角色id', '角色名称', ''],
 			colModel : [ {
@@ -187,7 +188,7 @@ function init() {
 			}, {
 				name : 'myac',
 				index : '',
-				width : 80,
+				width : 50,
 				fixed : true,
 				sortable : false,
 				resize : false,
