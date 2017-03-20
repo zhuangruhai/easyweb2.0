@@ -63,7 +63,7 @@
 							<label class="col-sm-3 control-label no-padding-right text-right"
 								for="roleKey"> <span class="red">*</span>角色助记码:
 							</label>
-							<div class="col-sm-5">
+							<div class="col-sm-6">
 								<input type="text" name="roleKey" id="roleKey" placeholder=""
 									class="form-control input-sm" />
 							</div>
@@ -73,7 +73,7 @@
 								for="roleName"> <span class="red">*</span>角色名称:
 							</label>
 
-							<div class="col-sm-5">
+							<div class="col-sm-6">
 								<input type="text" name="roleName" id="roleName" placeholder=""
 									class="form-control input-sm" />
 							</div>
@@ -82,7 +82,7 @@
 							<label class="col-sm-3 control-label no-padding-right text-right"
 								for="roleDesc"> 角色描述: </label>
 
-							<div class="col-sm-5">
+							<div class="col-sm-6">
 								<textarea name="roleDesc" id="roleDesc" cols="10" rows="3"
 									class="form-control input-sm"></textarea>
 							</div>

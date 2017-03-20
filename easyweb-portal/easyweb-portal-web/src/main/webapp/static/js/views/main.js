@@ -1,6 +1,6 @@
 $(function() {
 	$.permCheck.run();
-	$('#logout').bind('click', function() {
+	$('#logout,#logout2').bind('click', function() {
 		var logoutUrl = window.ctxPaths + "/";
 		$.ajax({
 			url : window.ctxPaths + '/portal/logout.ajax',
