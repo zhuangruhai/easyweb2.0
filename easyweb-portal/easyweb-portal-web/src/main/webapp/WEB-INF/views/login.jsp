@@ -19,7 +19,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>登录</title>
+<title>${result.title}</title>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
  <link href="${ctx}/static/css/login.css" rel="stylesheet">
 <script type="text/javascript" src="${ctx}/servlet/facade.script?action=getLoginInfo"></script>

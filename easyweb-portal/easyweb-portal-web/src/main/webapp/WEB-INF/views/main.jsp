@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
 
-    <title>主页</title>
+    <title> ${result.title}</title>
     <%@ include file="/WEB-INF/views/include/header.jsp"%>
     <script>
 	if(window.top !== window.self){ window.top.location = window.location;}
@@ -79,7 +79,7 @@
                 </button>
                 <nav class="page-tabs J_menuTabs">
                     <div class="page-tabs-content">
-                        <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页</a>
+                        <!-- a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页</a -->
                     </div>
                 </nav>
                 <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
@@ -101,7 +101,7 @@
                 <a href="login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
             </div>
             <div class="row J_mainContent" id="content-main">
-                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index_v1.html?v=4.0" frameborder="0" data-id="index_v1.html" seamless></iframe>
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="about:blank" frameborder="0" data-id="index_v1.html" seamless></iframe>
             </div>
             <div class="footer">
                 <div class="pull-right">&copy; 2014-2015 <a href="http://www.zi-han.net/" target="_blank">zihan's blog</a>

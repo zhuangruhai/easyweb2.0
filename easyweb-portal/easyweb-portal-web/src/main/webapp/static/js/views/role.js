@@ -10,6 +10,9 @@ var grid_selector = "#role-table";
 var pager_selector = "#grid-pager";
 jQuery(function($) {
 	$.permCheck.run();
+	$('#resetBtn').on('click', function() {
+		resetForm($('#queryForm'));
+	});
 	jqGrid_init($(grid_selector), pager_selector, {
 		url : list_role_Url,
 		sortable : true,

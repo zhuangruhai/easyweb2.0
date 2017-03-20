@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hichlink.easyweb.core.web.BaseController;
+import com.hichlink.easyweb.portal.common.config.Config;
 import com.hichlink.easyweb.portal.common.entity.Staff;
 import com.hichlink.easyweb.portal.common.service.MenuService;
 import com.hichlink.easyweb.portal.common.tree.MenuTreeNode;
@@ -29,20 +30,24 @@ public class IndexController extends BaseController {
 	private MenuService menuService;
 	private String[] menuLevelClazz = new String[] { "nav-second-level", "nav-third-level", "nav-third-level",
 			"nav-third-level" };
+	@Autowired
+	private Config config;
 
 	@RequestMapping(value = "/")
 	public ModelAndView view() {
+		Map<String, Object> result = new HashMap<String, Object>();
+		result.put("title", config.getTitle());
 		try {
 			if (null != StaffUtil.getLoginStaff()) {
 				Staff loginStaff = StaffUtil.getLoginStaff();
-				Map<String, Object> result = new HashMap<String, Object>();
 				result.put("staff", loginStaff);
+				
 				result.put("menuHtml", initMenu(loginStaff));
 				return new ModelAndView("main", "result", result);
 			}
 		} catch (Exception e) {
 		}
-		return new ModelAndView("login");
+		return new ModelAndView("login", "result", result);
 	}
 
 	private String initMenu(Staff loginStaff) {

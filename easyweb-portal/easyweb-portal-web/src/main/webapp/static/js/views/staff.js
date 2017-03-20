@@ -14,6 +14,9 @@ var add_validator;
 var edit_validator;
 jQuery(function($) {
 	$.permCheck.run();
+	$('#resetBtn').on('click', function() {
+		resetForm($('#queryForm'));
+	});
 	var grid_selector = "#staff-table";
 	var pager_selector = "#grid-pager";
 	jqGrid_init($(grid_selector), pager_selector, {
@@ -221,6 +224,8 @@ jQuery(function($) {
 	});
 
 });
+
+
 function resetAddForm() {
 	resetForm($('#addForm'), add_validator);
 }
