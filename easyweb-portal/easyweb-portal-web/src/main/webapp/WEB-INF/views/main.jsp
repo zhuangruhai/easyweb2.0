@@ -34,7 +34,7 @@
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <span><img alt="image" class="img-circle" src="${ctx}/static/img/profile_small.jpg" /></span>
+                            <span><img alt="image" class="img-circle" src="${ctx}/static/img/9_s.png" /></span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                <span class="block m-t-xs"><strong class="font-bold">${result.staff.loginName}</strong></span>
@@ -51,7 +51,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="logo-element">H+
+                        <div class="logo-element"><img alt="image" class="img-circle" src="${ctx}/static/img/logo.png" width="100" height="100"/>
                         </div>
                     </li>
                     ${result.menuHtml}

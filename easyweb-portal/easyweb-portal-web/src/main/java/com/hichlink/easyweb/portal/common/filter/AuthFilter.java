@@ -8,23 +8,24 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import com.hichlink.easyweb.core.util.SpringContextHolder;
+import com.fasterxml.jackson.core.JsonEncoding;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hichlink.easyweb.portal.common.auth.session.SessionContext;
 import com.hichlink.easyweb.portal.common.authapi.AuthConstant;
 import com.hichlink.easyweb.portal.common.authapi.AuthResult;
 import com.hichlink.easyweb.portal.common.entity.Staff;
 import com.hichlink.easyweb.portal.common.service.AuthService;
-import com.hichlink.easyweb.portal.common.service.impl.AuthServiceImpl;
-import com.fasterxml.jackson.core.JsonEncoding;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.ObjectMapper;
+@WebFilter(filterName="myFilter",urlPatterns="*.ajax")
 public class AuthFilter implements Filter {
 
 	/** * JSP后缀. */
@@ -33,16 +34,9 @@ public class AuthFilter implements Filter {
 	public static final String AJAX_SUFFIX = "ajax";
 	
 	private static final Logger LOG = LoggerFactory.getLogger(AuthFilter.class);
-	
+	@Autowired
 	private AuthService authService;
 	
-	public AuthService getAuthService() {
-		return authService;
-	}
-
-	public void setAuthService(AuthService authService) {
-		this.authService = authService;
-	}
 
 	public void init(FilterConfig filterConfig) throws ServletException {
 		
@@ -65,7 +59,7 @@ public class AuthFilter implements Filter {
 		System.out.println("contextPath["+contextPath+"],  servletPath[" + servletPath + "]");
 
 	
-		authService = SpringContextHolder.getBean(AuthServiceImpl.class);
+		//authService = SpringContextHolder.getBean(AuthServiceImpl.class);
 		// 判断是否鉴权例外的url， 无需登录 , 第二个判断是规避元数据没导入或者导入出错之后访问首页死循环的问题
 		if(authService.authExclude(servletPath) || servletPath.equals(AuthConstant.DEFAULT_LOGIN_PAGE)){
 			System.out.println("url["+servletPath+"]属于例外鉴权。");
