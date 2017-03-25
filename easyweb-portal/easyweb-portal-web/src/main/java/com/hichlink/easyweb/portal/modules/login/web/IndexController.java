@@ -20,6 +20,7 @@ import com.hichlink.easyweb.portal.common.entity.Staff;
 import com.hichlink.easyweb.portal.common.service.MenuService;
 import com.hichlink.easyweb.portal.common.tree.MenuTreeNode;
 import com.hichlink.easyweb.portal.common.tree.TreeNode;
+import com.hichlink.easyweb.portal.common.util.RSAUtil;
 import com.hichlink.easyweb.portal.common.util.StaffUtil;
 
 @Controller
@@ -47,6 +48,10 @@ public class IndexController extends BaseController {
 			}
 		} catch (Exception e) {
 		}
+		String modulus = RSAUtil.bigIntToHexStr(RSAUtil.getDefaultPublicKey().getModulus());
+		String exponent = RSAUtil.bigIntToHexStr(RSAUtil.getDefaultPublicKey().getPublicExponent());
+		result.put("modulus", modulus);
+		result.put("exponent", exponent);
 		return new ModelAndView("login", "result", result);
 	}
 

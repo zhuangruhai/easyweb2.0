@@ -49,7 +49,12 @@ public class StaffController extends BaseController {
 
 	@RequestMapping(value = "/view")
 	public ModelAndView view() {
-		return new ModelAndView("staff");
+		Map<String, Object> result = new HashMap<String, Object>();
+		String modulus = RSAUtil.bigIntToHexStr(RSAUtil.getDefaultPublicKey().getModulus());
+		String exponent = RSAUtil.bigIntToHexStr(RSAUtil.getDefaultPublicKey().getPublicExponent());
+		result.put("modulus", modulus);
+		result.put("exponent", exponent);
+		return new ModelAndView("staff", "result", result);
 	}
 
 	@RequestMapping(value = "/viewModifyPwd")

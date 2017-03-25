@@ -1,11 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page
-	import="com.hichlink.easyweb.portal.common.config.Config,com.hichlink.easyweb.portal.common.util.RSAUtil"%>
-<%
-	String modulus = RSAUtil.bigIntToHexStr(RSAUtil.getDefaultPublicKey().getModulus());
-	String exponent = RSAUtil.bigIntToHexStr(RSAUtil.getDefaultPublicKey().getPublicExponent());
-%>
 <!DOCTYPE html>
 <html>
 
@@ -15,10 +7,10 @@
 <meta name="renderer" content="webkit">
 
 <title>主页</title>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<#include "/include/header.ftl">
 <script type="text/javascript">
-	window.modulus    = '<%=modulus%>';
-	window.exponent   = '<%=exponent%>
+	window.modulus    = '${result.modulus%}';
+	window.exponent   = '${result.exponent}';
 	';
 </script>
 </head>
@@ -228,14 +220,14 @@
 			</div>
 		</div>
 	</div>
-	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
-	<script type="text/javascript" src="${ctx}/static/js/crypt/jsbn.js"></script>
-	<script type="text/javascript" src="${ctx}/static/js/crypt/prng4.js"></script>
-	<script type="text/javascript" src="${ctx}/static/js/crypt/rng.js"></script>
-	<script type="text/javascript" src="${ctx}/static/js/crypt/rsa.js"></script>
-	<script type="text/javascript" src="${ctx}/static/js/crypt/base64.js"></script>
+	<#include "/include/footer.ftl">
+	<script type="text/javascript" src="${ctx}/js/crypt/jsbn.js"></script>
+	<script type="text/javascript" src="${ctx}/js/crypt/prng4.js"></script>
+	<script type="text/javascript" src="${ctx}/js/crypt/rng.js"></script>
+	<script type="text/javascript" src="${ctx}/js/crypt/rsa.js"></script>
+	<script type="text/javascript" src="${ctx}/js/crypt/base64.js"></script>
 	<script type="text/javascript"
 		src="${ctx}/servlet/facade.script?action=getLoginInfo"></script>
-	<script type="text/javascript" src="${ctx}/static/js/views/staff.js"></script>
+	<script type="text/javascript" src="${ctx}/js/views/staff.js"></script>
 </body>
 </html>

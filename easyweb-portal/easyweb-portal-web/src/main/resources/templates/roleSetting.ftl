@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="renderer" content="webkit">
 <title>主页</title>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<#include "/include/header.ftl">
 <style>
 .checkbox LABEL {
 	display: inline-block;
@@ -101,9 +99,9 @@
 		</div>
 	</div>
 	<!-- page specific plugin scripts -->
-	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
-	<script src="${ctx}/static/js/plugins/nestable/jquery.nestable.js"></script>
+	<#include "/include/footer.ftl">
+	<script src="${ctx}/js/plugins/nestable/jquery.nestable.js"></script>
 	<script type="text/javascript"
-		src="${ctx}/static/js/views/roleSetting.js"></script>
+		src="${ctx}/js/views/roleSetting.js"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@
 <meta name="renderer" content="webkit">
 
 <title>主页</title>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<#include "/include/header.ftl">
 </head>
 
 <body class="gray-bg">

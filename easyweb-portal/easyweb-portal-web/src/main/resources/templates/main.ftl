@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -9,7 +7,7 @@
     <meta name="renderer" content="webkit">
 
     <title> ${result.title}</title>
-    <%@ include file="/WEB-INF/views/include/header.jsp"%>
+    <#include "/include/header.ftl">
     <script>
 	if(window.top !== window.self){ window.top.location = window.location;}
 	var cache = {
@@ -34,7 +32,7 @@
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <span><img alt="image" class="img-circle" src="${ctx}/static/img/9_s.png" /></span>
+                            <span><img alt="image" class="img-circle" src="${ctx}/img/9_s.png" /></span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                <span class="block m-t-xs"><strong class="font-bold">${result.staff.loginName}</strong></span>
@@ -51,7 +49,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="logo-element"><img alt="image" class="img-circle" src="${ctx}/static/img/logo.png" width="100" height="100"/>
+                        <div class="logo-element"><img alt="image" class="img-circle" src="${ctx}/img/logo.png" width="100" height="100"/>
                         </div>
                     </li>
                     ${result.menuHtml}
@@ -200,17 +198,17 @@
         </div>
         <!--右侧边栏结束-->
     </div>
-	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
-    <script src="${ctx}/static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="${ctx}/static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="${ctx}/static/js/plugins/layer/layer.min.js"></script>
+	<#include "/include/footer.ftl">
+    <script src="${ctx}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="${ctx}/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="${ctx}/js/plugins/layer/layer.min.js"></script>
     <!-- 自定义js -->
-    <script src="${ctx}/static/js/hplus.js?v=4.1.0"></script>
-    <script type="text/javascript" src="${ctx}/static/js/contabs.js"></script>
+    <script src="${ctx}/js/hplus.js?v=4.1.0"></script>
+    <script type="text/javascript" src="${ctx}/js/contabs.js"></script>
 
     <!-- 第三方插件 -->
-    <script src="${ctx}/static/js/plugins/pace/pace.min.js"></script>
-	<script src="${ctx}/static/js/views/main.js"></script>
+    <script src="${ctx}/js/plugins/pace/pace.min.js"></script>
+	<script src="${ctx}/js/views/main.js"></script>
 </body>
 
 </html>

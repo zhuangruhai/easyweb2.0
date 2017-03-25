@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -9,7 +7,7 @@
 <meta name="renderer" content="webkit">
 
 <title>主页</title>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<#include "/include/header.ftl">
 </head>
 <body class="gray-bg">
 	<div class="wrapper wrapper-content  animated fadeInRight">
@@ -75,15 +73,15 @@
 			</div>
 		</div>
 	</div>
-	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
-	<script type="text/javascript" src="${ctx}/static/js/crypt/jsbn.js"></script>
-	<script type="text/javascript" src="${ctx}/static/js/crypt/prng4.js"></script>
-	<script type="text/javascript" src="${ctx}/static/js/crypt/rng.js"></script>
-	<script type="text/javascript" src="${ctx}/static/js/crypt/rsa.js"></script>
-	<script type="text/javascript" src="${ctx}/static/js/crypt/base64.js"></script>
+	<#include "/include/footer.ftl">
+	<script type="text/javascript" src="${ctx}/js/crypt/jsbn.js"></script>
+	<script type="text/javascript" src="${ctx}/js/crypt/prng4.js"></script>
+	<script type="text/javascript" src="${ctx}/js/crypt/rng.js"></script>
+	<script type="text/javascript" src="${ctx}/js/crypt/rsa.js"></script>
+	<script type="text/javascript" src="${ctx}/js/crypt/base64.js"></script>
 	<script type="text/javascript"
 		src="${ctx}/servlet/facade.script?action=getLoginInfo"></script>
 	<script type="text/javascript"
-		src="${ctx}/static/js/views/modifyPwd.js"></script>
+		src="${ctx}/js/views/modifyPwd.js"></script>
 </body>
 </html>

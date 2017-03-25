@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -9,7 +7,7 @@
 <meta name="renderer" content="webkit">
 
 <title>主页</title>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<#include "/include/header.ftl">
 <style type="text/css">
 .tree {
 	padding-left: 9px;
@@ -855,11 +853,11 @@ em {
 	</div>
 
 	<!-- page specific plugin scripts -->
-	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+	<#include "/include/footer.ftl">
 	<script type="text/javascript"
-		src="${ctx}/static/js/plugins/fuelux/fuelux.tree.min.js"></script>
+		src="${ctx}/js/plugins/fuelux/fuelux.tree.min.js"></script>
 	<script type="text/javascript"
-		src="${ctx}/static/js/custom/mult-select2.js"></script>
-	<script type="text/javascript" src="${ctx}/static/js/views/dept.js?12454"></script>
+		src="${ctx}/js/custom/mult-select2.js"></script>
+	<script type="text/javascript" src="${ctx}/js/views/dept.js?12454"></script>
 </body>
 </html>
