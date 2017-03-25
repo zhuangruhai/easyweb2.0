@@ -16,8 +16,7 @@ var getP = function(n) {
 	return '';
 };
 function  pseth() {
-    //var iObj = parent.parent.document.getElementById('mainFrame');//A和main同域，所以可以访问节点
-    var iObjH = window.location.href;//访问自己的location对象获取hash值
+    var iObjH = window.location.href;
 	var arr = iObjH.split("#");
 	var referrer = decodeURIComponent(getP('referrer')),c = decodeURIComponent(getP('c'));
 	if (arr.length == 3){
@@ -27,13 +26,10 @@ function  pseth() {
 		 }
 		 if (parentIfmId){
 			var iObj = parent.parent.document.getElementById(parentIfmId);
-			 iObj.style.height = (vheight > 520 ? vheight : 520)+ "px";//操作dom
+			 iObj.style.height = (vheight > 520 ? vheight : 520)+ "px";
 			 parent.parent.cache.setCache(c,parentIfmId);
 		 }
 	}
-	/**if (parent.parent.initIfmStyle){
-		parent.parent.initIfmStyle();
-	}**/
 }
 pseth();
 </script>

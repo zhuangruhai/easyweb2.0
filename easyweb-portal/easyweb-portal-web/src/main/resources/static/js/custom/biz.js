@@ -262,36 +262,37 @@ var Q_Alert =  function(content,callback){
 	//$._setPosition($('.modal-dialog'));
 };
 var Q_Confirm =  function(content,callback){
-	bootbox.setDefaults({
-		locale : 'zh_CN'
+	_this = this;
+	swal({
+		title : "提示",
+		text : content,
+		type : "warning",
+		showCancelButton : true,
+		confirmButtonColor : "#DD6B55",
+		confirmButtonText : "确定",
+		 cancelButtonText: "取消",
+		closeOnConfirm : true
+	}, function() {
+		if (typeof callback === 'function'){
+			callback.call(this,true);
+		}
+		return false;
 	});
-	var _defaults = {
-		message: content,
-		buttons: {
-		  confirm: {
-			 label: "确定",
-			 className: "btn-danger btn-sm",
-		  },
-		  cancel: {
-			 label: "取消",
-			 className: "btn-sm",
-		  }
-		},
-		callback: callback
-	  };
-	bootbox.confirm(_defaults);
-	//$._setPosition($('.modal-dialog'));
 };
 var Q_Prompt =  function(content,callback){
-	bootbox.setDefaults({
-		locale : 'zh_CN'
-	});
-	bootbox.prompt(content, function(result) {
+	swal({
+		title : "提示",
+		text : content,
+		type : "input",
+		showCancelButton : true,
+		closeOnConfirm : true,
+		animation : "slide-from-top",
+		inputPlaceholder : ""
+	}, function(inputValue) {
 		if (typeof callback === 'function'){
-			callback.call(this,result);
+			callback.call(this,inputValue);
 		}
 	});
-	//$._setPosition($('.modal-dialog'));
 };
 
 (function() {

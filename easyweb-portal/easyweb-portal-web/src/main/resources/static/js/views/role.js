@@ -110,6 +110,7 @@ function editEvent(id) {
 
 function deleteEvent(id) {
 	Q_Confirm("是否要删除？", function(result) {
+		alert(result)
 		if (result) {
 			$.ajaxSubmit(delete_role_url, {
 				'roleId' : id
