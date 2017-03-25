@@ -26,6 +26,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.wall.WallConfig;
 import com.alibaba.druid.wall.WallFilter;
 import com.hichlink.easyweb.core.pagination.mybatis.interceptor.PaginationInterceptor;
+import com.hichlink.easyweb.core.util.SpringContextHolder;
 
 @Configuration
 @EnableTransactionManagement
@@ -105,5 +106,9 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
 	@Override
 	public PlatformTransactionManager annotationDrivenTransactionManager() {
 		return new DataSourceTransactionManager(getDataSource());
+	}
+	@Bean
+	public SpringContextHolder initSpringContextHolder(){
+		return new SpringContextHolder();
 	}
 }

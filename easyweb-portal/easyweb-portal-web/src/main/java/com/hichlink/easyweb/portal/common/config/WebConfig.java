@@ -19,4 +19,5 @@ public class WebConfig {
 	    LOG.debug("web.xml配置成功{}",reg.toString());
 	    return reg;
 	}
+	
 }
