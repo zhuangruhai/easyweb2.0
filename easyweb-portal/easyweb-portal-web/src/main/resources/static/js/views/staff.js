@@ -94,7 +94,7 @@ jQuery(function($) {
 				name : 'roleName',
 				index : 'roleName',
 				sortable : false,
-				width : 270
+				width : 250
 			}, {
 				name : 'myac',
 				index : '',
