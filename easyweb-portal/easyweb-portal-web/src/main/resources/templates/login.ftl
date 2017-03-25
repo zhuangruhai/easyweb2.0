@@ -6,6 +6,14 @@
 <title>${result.title}</title>
 <#include "/include/header.ftl">
  <link href="${ctx}/css/login.css" rel="stylesheet">
+ <style>
+ .index-login-img {
+    background-image: url(${ctx}/img/bg_index.jpg);
+    background-repeat: no-repeat;
+    background-position: 25% 4px;
+    height: 417px;
+}
+ </style>
 <script type="text/javascript" src="${ctx}/servlet/facade.script?action=getLoginInfo"></script>
 <script type="text/javascript">
 	if(window.top !== window.self){ window.top.location = window.location;}
@@ -33,26 +41,11 @@
     <div class="signinpanel">
         <div class="row">
             <div class="col-sm-7">
-                <div class="signin-info">
-                    <div class="logopanel m-b">
-                        <h1>[ H+ ]</h1>
-                    </div>
-                    <div class="m-b"></div>
-                    <h4>欢迎使用 <strong>H+ 后台主题UI框架</strong></h4>
-                    <ul class="m-b">
-                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 优势一</li>
-                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 优势二</li>
-                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 优势三</li>
-                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 优势四</li>
-                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 优势五</li>
-                    </ul>
-                    <strong>还没有账号？ <a href="#">立即注册&raquo;</a></strong>
-                </div>
             </div>
             <div class="col-sm-5">
                 <form id="loginForm" onsubmit="return false;">
                     <h4 class="no-margins">登录：</h4>
-                    <p class="m-t-md">登录到H+后台主题UI框架</p>
+                    <p class="m-t-md">${result.title}</p>
                     <input type="text" class="form-control uname" placeholder="用户名" name="loginName"/>
                     <input type="password" class="form-control pword m-b" placeholder="密码" name="password"/>
                     <div class="form-group" style="display: none">
@@ -67,7 +60,7 @@
         </div>
         <div class="signup-footer">
             <div class="pull-left">
-                &copy; 2015 All Rights Reserved. H+
+                &copy; 2017 All Rights Reserved.
             </div>
         </div>
     </div>

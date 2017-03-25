@@ -9,9 +9,8 @@
 <title>主页</title>
 <#include "/include/header.ftl">
 <script type="text/javascript">
-	window.modulus    = '${result.modulus%}';
+	window.modulus    = '${result.modulus}';
 	window.exponent   = '${result.exponent}';
-	';
 </script>
 </head>
 
