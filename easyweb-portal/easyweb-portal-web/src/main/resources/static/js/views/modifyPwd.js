@@ -45,7 +45,7 @@ $(function() {
 													"修改个人密码成功",
 													function() {
 														window.location.href = window.ctxPaths
-																+ "/pages/auth/individual/modifyInfo.shtml";
+																+ "/staff/viewModifyInfo";
 													});
 										} else {
 											if (data && data.message) {
