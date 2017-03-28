@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hichlink.easyweb.portal.common.dao.SubSystemMapper" >
+  <resultMap id="BaseResultMap" type="com.hichlink.easyweb.portal.common.entity" >
+    <id column="SUB_SYSTEM_ID" property="subSystemId" jdbcType="VARCHAR" />
+    <result column="SUB_SYSTEM_NAME" property="subSystemName" jdbcType="VARCHAR" />
+    <result column="SUB_SYSTEM_DESC" property="subSystemDesc" jdbcType="VARCHAR" />
+    <result column="HOP_DOMAIN" property="hopDomain" jdbcType="VARCHAR" />
+    <result column="INTERFACE_DOMAIN" property="interfaceDomain" jdbcType="VARCHAR" />
+    <result column="DEPLOY_MODE" property="deployMode" jdbcType="VARCHAR" />
+    <result column="DOMAIN" property="domain" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <!--例子:<if test="params['name'] != null and  params['name'] != ''">and name=#{params.name}</if>-->
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    SUB_SYSTEM_ID, SUB_SYSTEM_NAME, SUB_SYSTEM_DESC, HOP_DOMAIN, INTERFACE_DOMAIN, DEPLOY_MODE, 
+    DOMAIN
+  </sql>
+  <select id="pageQuery" resultMap="BaseResultMap" parameterType="com.aspire.webbas.core.pagination.mybatis.pager.Page" >
+    select
+    <include refid="Base_Column_List" />
+    from SUB_SYSTEM
+    <if test="params != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from SUB_SYSTEM
+    where SUB_SYSTEM_ID = #{subSystemId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from SUB_SYSTEM
+    where SUB_SYSTEM_ID = #{subSystemId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.hichlink.easyweb.portal.common.entity" >
+    insert into SUB_SYSTEM (SUB_SYSTEM_ID, SUB_SYSTEM_NAME, SUB_SYSTEM_DESC, 
+      HOP_DOMAIN, INTERFACE_DOMAIN, DEPLOY_MODE, 
+      DOMAIN)
+    values (#{subSystemId,jdbcType=VARCHAR}, #{subSystemName,jdbcType=VARCHAR}, #{subSystemDesc,jdbcType=VARCHAR}, 
+      #{hopDomain,jdbcType=VARCHAR}, #{interfaceDomain,jdbcType=VARCHAR}, #{deployMode,jdbcType=VARCHAR}, 
+      #{domain,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hichlink.easyweb.portal.common.entity" >
+    insert into SUB_SYSTEM
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="subSystemId != null" >
+        SUB_SYSTEM_ID,
+      </if>
+      <if test="subSystemName != null" >
+        SUB_SYSTEM_NAME,
+      </if>
+      <if test="subSystemDesc != null" >
+        SUB_SYSTEM_DESC,
+      </if>
+      <if test="hopDomain != null" >
+        HOP_DOMAIN,
+      </if>
+      <if test="interfaceDomain != null" >
+        INTERFACE_DOMAIN,
+      </if>
+      <if test="deployMode != null" >
+        DEPLOY_MODE,
+      </if>
+      <if test="domain != null" >
+        DOMAIN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="subSystemId != null" >
+        #{subSystemId,jdbcType=VARCHAR},
+      </if>
+      <if test="subSystemName != null" >
+        #{subSystemName,jdbcType=VARCHAR},
+      </if>
+      <if test="subSystemDesc != null" >
+        #{subSystemDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="hopDomain != null" >
+        #{hopDomain,jdbcType=VARCHAR},
+      </if>
+      <if test="interfaceDomain != null" >
+        #{interfaceDomain,jdbcType=VARCHAR},
+      </if>
+      <if test="deployMode != null" >
+        #{deployMode,jdbcType=VARCHAR},
+      </if>
+      <if test="domain != null" >
+        #{domain,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hichlink.easyweb.portal.common.entity" >
+    update SUB_SYSTEM
+    <set >
+      <if test="subSystemName != null" >
+        SUB_SYSTEM_NAME = #{subSystemName,jdbcType=VARCHAR},
+      </if>
+      <if test="subSystemDesc != null" >
+        SUB_SYSTEM_DESC = #{subSystemDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="hopDomain != null" >
+        HOP_DOMAIN = #{hopDomain,jdbcType=VARCHAR},
+      </if>
+      <if test="interfaceDomain != null" >
+        INTERFACE_DOMAIN = #{interfaceDomain,jdbcType=VARCHAR},
+      </if>
+      <if test="deployMode != null" >
+        DEPLOY_MODE = #{deployMode,jdbcType=VARCHAR},
+      </if>
+      <if test="domain != null" >
+        DOMAIN = #{domain,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SUB_SYSTEM_ID = #{subSystemId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hichlink.easyweb.portal.common.entity" >
+    update SUB_SYSTEM
+    set SUB_SYSTEM_NAME = #{subSystemName,jdbcType=VARCHAR},
+      SUB_SYSTEM_DESC = #{subSystemDesc,jdbcType=VARCHAR},
+      HOP_DOMAIN = #{hopDomain,jdbcType=VARCHAR},
+      INTERFACE_DOMAIN = #{interfaceDomain,jdbcType=VARCHAR},
+      DEPLOY_MODE = #{deployMode,jdbcType=VARCHAR},
+      DOMAIN = #{domain,jdbcType=VARCHAR}
+    where SUB_SYSTEM_ID = #{subSystemId,jdbcType=VARCHAR}
+  </update>
+</mapper>
