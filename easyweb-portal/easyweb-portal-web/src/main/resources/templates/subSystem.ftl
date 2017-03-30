@@ -39,7 +39,6 @@
 	<div id="add-form-modal" class="modal" role="dialog" tabindex="-1">
 		<div class="modal-dialog">
 			<form class="form-horizontal" role="form" id="add-form" onsubmit="return false;">
-				<input type="hidden" name="subSystemId"  id="subSystemId"/>
 				<input type="hidden" name="updId"  id="updId"/>
 				<div class="modal-content">
 					<div class="modal-header">
@@ -47,46 +46,55 @@
 						<h4 class="blue bigger">新增/修改</h4>
 					</div>
 					<div class="modal-body">
-							 										 										<div class="form-group">
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right text-right" for="subSystemId">
+								<span class="red">*</span>
+								子系统Id:
+							</label>
+							<div class="col-sm-5">
+								<input type="text" name="subSystemId" id="subSystemId" placeholder="子系统Id" class="form-control input-sm" />
+							</div>
+						</div>
+							 <div class="form-group">
 							<label class="col-sm-3 control-label no-padding-right text-right" for="subSystemName">
-																<span class="red">*</span>
-															子系统名称:
+								<span class="red">*</span>
+								子系统名称:
 							</label>
 							<div class="col-sm-5">
 								<input type="text" name="subSystemName" id="subSystemName" placeholder="子系统名称" class="form-control input-sm" />
 							</div>
 						</div>
-												 										<div class="form-group">
+						<div class="form-group">
 							<label class="col-sm-3 control-label no-padding-right text-right" for="subSystemDesc">
-															子系统描述:
+								子系统描述:
 							</label>
 							<div class="col-sm-5">
 								<input type="text" name="subSystemDesc" id="subSystemDesc" placeholder="子系统描述" class="form-control input-sm" />
 							</div>
 						</div>
-												 										<div class="form-group">
+						<div class="form-group">
 							<label class="col-sm-3 control-label no-padding-right text-right" for="hopDomain">
-															PORTAL跳转业务系统使用的域名:
+								子系统外部地址:
 							</label>
 							<div class="col-sm-5">
-								<input type="text" name="hopDomain" id="hopDomain" placeholder="PORTAL跳转业务系统使用的域名" class="form-control input-sm" />
+								<input type="text" name="hopDomain" id="hopDomain" placeholder="子系统地址" class="form-control input-sm" />
 							</div>
 						</div>
-												 										<div class="form-group">
+							<div class="form-group">
 							<label class="col-sm-3 control-label no-padding-right text-right" for="interfaceDomain">
-															interface_domain:
+								子系统内部地址:
 							</label>
 							<div class="col-sm-5">
-								<input type="text" name="interfaceDomain" id="interfaceDomain" placeholder="interface_domain" class="form-control input-sm" />
+								<input type="text" name="interfaceDomain" id="interfaceDomain" placeholder="子系统内部地址" class="form-control input-sm" />
 							</div>
 						</div>
-												 										<div class="form-group">
+							<div class="form-group">
 							<label class="col-sm-3 control-label no-padding-right text-right" for="deployMode">
 																<span class="red">*</span>
-															deploy_mode:
+															发布模式:
 							</label>
 							<div class="col-sm-5">
-								<input type="text" name="deployMode" id="deployMode" placeholder="deploy_mode" class="form-control input-sm" />
+								<input type="text" name="deployMode" value="Remote" id="deployMode" placeholder="deploy_mode" class="form-control input-sm" />
 							</div>
 						</div>
 												 										<div class="form-group">
@@ -95,7 +103,7 @@
 															子系统所属的域:
 							</label>
 							<div class="col-sm-5">
-								<input type="text" name="domain" id="domain" placeholder="子系统所属的域" class="form-control input-sm" />
+								<input type="text" name="domain" value="admin" id="domain" placeholder="子系统所属的域" class="form-control input-sm" />
 							</div>
 						</div>
 																</div>
@@ -127,7 +135,16 @@
 
 				<div class="modal-body">
 					<form class="form-horizontal" role="form">
-						 										 									<div class="form-group">
+					<div class="form-group">
+						<label class="col-sm-5 control-label no-padding-right text-right">
+							子系统ID:
+						</label>
+						<div class="col-sm-7">
+							<p name="subSystemId" class="form-control-static"></p>
+						</div>
+					</div>
+					
+					<div class="form-group">
 						<label class="col-sm-5 control-label no-padding-right text-right">
 							子系统名称:
 						</label>
@@ -145,7 +162,7 @@
 					</div>
 											 									<div class="form-group">
 						<label class="col-sm-5 control-label no-padding-right text-right">
-							PORTAL跳转业务系统使用的域名:
+							子系统外部地址:
 						</label>
 						<div class="col-sm-7">
 							<p name="hopDomain" class="form-control-static"></p>
@@ -153,7 +170,7 @@
 					</div>
 											 									<div class="form-group">
 						<label class="col-sm-5 control-label no-padding-right text-right">
-							interface_domain:
+							子系统内部地址:
 						</label>
 						<div class="col-sm-7">
 							<p name="interfaceDomain" class="form-control-static"></p>
@@ -161,7 +178,7 @@
 					</div>
 											 									<div class="form-group">
 						<label class="col-sm-5 control-label no-padding-right text-right">
-							deploy_mode:
+							发布模式:
 						</label>
 						<div class="col-sm-7">
 							<p name="deployMode" class="form-control-static"></p>
@@ -208,14 +225,14 @@
 										'子系统ID',
 										'子系统名称',
 										'子系统描述',
-										'PORTAL跳转业务系统使用的域名',
-										'interface_domain',
-										'deploy_mode',
+										'子系统外部地址',
+										'子系统内部地址',
+										'发布模式',
 										'子系统所属的域',
 										''
 					],
 					colModel:[
-												   					{name:'subSystemId',index:'subSystemId', hidden:true},
+												   					{name:'subSystemId',index:'subSystemId'},
 						   					   						   												{name:'subSystemName',index:'subSystemName', sortable:true,sortname : 'sub_system_name',width:100,formatter:formatName},
 													   					   						   												{name:'subSystemDesc',index:'subSystemDesc', sortable:true,sortname : 'sub_system_desc',width:100},
 													   					   						   												{name:'hopDomain',index:'hopDomain', sortable:true,sortname : 'hop_domain',width:100},
@@ -246,7 +263,8 @@
 				    if(data.success == true){
 						resetForm($('#add-form'),add_validator);
 						$('#add-form').json2Form2(data.data);
-						$('#updId').val($('subSystemId').val());
+						$('#subSystemId').attr('readonly','readonly');
+						$('#updId').val($('#subSystemId').val());
 						$('#add-form-modal').modal2({backdrop:"static",show:true});
 					}else{
 						Q_Alert_Fail(data.message);
@@ -302,7 +320,8 @@
 			
 			$('#addBtn').on('click', function(){
 			    resetForm($('#add-form'),add_validator);
-				$('#subSystemId').val('');
+				$('#subSystemId').removeAttr('readonly').val('');
+				
 				$('#add-form-modal').modal2({backdrop:"static",show:true});
 			});
 			

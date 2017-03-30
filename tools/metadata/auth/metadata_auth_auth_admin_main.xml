@@ -28,6 +28,20 @@
 					<address name="个性化参数设置" url="/pendTaskSetting/update.ajax"/>
 				</operation>
 			</resource>
+			<resource key="auth_admin_sys_subsystem" name="子系统管理" desc="子系统管理">
+				<operation key="QUERY" name="查询" desc="查询">
+					<address name="子系统页面" url="/subSystem/view"/>
+					<address name="查询请求" url="/subSystem/query.ajax"/>
+				</operation>
+				<operation key="ADD" name="创建" desc="创建用户">
+				    <address name="子系统新增请求" url="/subSystem/get.ajax"/>
+					<address name="子系统新增请求" url="/subSystem/add.ajax"/>
+				</operation>
+				<operation key="DELETE" name="删除" desc="删除用户">
+					<address name="删除请求" url="/subSystem/delete.ajax"/>
+				</operation>
+				
+			</resource>
 		</resource-category>
 		<resource-category key="auth_admin_sys_dept" name="组织管理" desc="组织管理">
 				<resource key="auth_admin_sys_dept_deptManage" name="组织管理" desc="组织管理">

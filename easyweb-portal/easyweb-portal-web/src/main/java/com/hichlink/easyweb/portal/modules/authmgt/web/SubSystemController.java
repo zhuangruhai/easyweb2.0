@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.hichlink.easyweb.core.pagination.mybatis.pager.Page;
 import com.hichlink.easyweb.core.util.StringTools;
@@ -36,7 +37,10 @@ public class SubSystemController extends BaseController {
 	@Autowired
 	@Qualifier("subSystemService")
 	private SubSystemService subSystemService;
-
+	@RequestMapping(value = "/view")
+	public ModelAndView view() {
+		return new ModelAndView("subSystem");
+	}
 	@RequestMapping(value = "/query.ajax")
 	@ResponseBody
 	public Map<String, Object> pageQuery(Page<SubSystem> page) {
