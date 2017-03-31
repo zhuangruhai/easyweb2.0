@@ -39,7 +39,7 @@ public class SubSystemService {
 	}
 
 	public void saveAndUpdate(SubSystem data) {
-		if (StringTools.isNotEmptyString(data.getSubSystemId())) {// 判断有没有传主键，如果传了为更新，否则为新增
+		if (StringTools.isNotEmptyString(data.getUpdId())) {// 判断有没有传主键，如果传了为更新，否则为新增
 			this.update(data);
 		} else {
 			this.insert(data);

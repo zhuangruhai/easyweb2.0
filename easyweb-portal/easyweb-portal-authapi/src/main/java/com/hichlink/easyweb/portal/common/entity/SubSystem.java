@@ -8,6 +8,7 @@ public class SubSystem implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -7218954853841966736L;
+	private String updId;
 	private String subSystemId;
 	private String subSystemName;
 	private String subSystemDesc;
@@ -57,5 +58,11 @@ public class SubSystem implements Serializable{
 	}
 	public void setDomain(String domain) {
 		this.domain = domain;
+	}
+	public String getUpdId() {
+		return updId;
+	}
+	public void setUpdId(String updId) {
+		this.updId = updId;
 	}
 }

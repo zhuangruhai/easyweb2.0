@@ -14,6 +14,14 @@
 					<div class="ibox-content">
 						<form role="form" class="form-inline" id="queryForm"
 							onsubmit="return false;">
+							<div class="form-group">
+                                <label for="subSystemId" class="sr-only">子系统ID</label>
+                                <input type="text" placeholder="子系统ID" name="params['subSystemId']" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="subSystemName" class="sr-only">子系统名称</label>
+                                <input type="text" placeholder="子系统名称" name="params['subSystemName']" class="form-control">
+                            </div>
 							<button type="button" id="seachBtn"
 								class="btn btn-sm btn-primary">
 								查找<i class="fa fa-search icon-on-right bigger-110"></i>
@@ -247,10 +255,10 @@
 				}
 				function actionButtons(cellvalue, options, rowObject){
 					return '<div >' + 
-								'<button onclick=\"editEvent('+rowObject['subSystemId']+')\" class=\"btn btn-xs btn-info\" data-rel=\"tooltip\" title=\"编辑\" >' +
+								'<button onclick=\"editEvent(\''+rowObject['subSystemId']+'\')\" class=\"btn btn-xs btn-info\" data-rel=\"tooltip\" title=\"编辑\" >' +
 									'<i class=\"ace-icon fa fa-pencil bigger-120\"></i>' +
 								'</button>' + 
-								'<button onclick=\"deleteEvent('+rowObject['subSystemId']+')\" class=\"btn btn-xs btn-danger\" data-rel=\"tooltip\" title=\"删除\" >' +
+								'<button onclick=\"deleteEvent(\''+rowObject['subSystemId']+'\')\" class=\"btn btn-xs btn-danger\" data-rel=\"tooltip\" title=\"删除\" >' +
 									'<i class=\"ace-icon fa fa-trash-o bigger-120\"></i>' +
 								'</button>'  + 
 							'</div>';
@@ -323,6 +331,9 @@
 				$('#subSystemId').removeAttr('readonly').val('');
 				
 				$('#add-form-modal').modal2({backdrop:"static",show:true});
+			});
+			$('#resetBtn').on('click', function() {
+				resetForm($('#queryForm'));
 			});
 			
 			$('#seachBtn').on('click', function(){
