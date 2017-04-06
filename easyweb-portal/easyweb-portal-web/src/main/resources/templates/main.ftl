@@ -49,7 +49,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="logo-element"><img alt="image" class="img-circle" src="${ctx}/img/logo.png" width="100" height="100"/>
+                        <div class="logo-element"><img alt="image" class="img-circle" src="${ctx}/img/logo.png" width="50" height="50"/>
                         </div>
                     </li>
                     ${result.menuHtml}
