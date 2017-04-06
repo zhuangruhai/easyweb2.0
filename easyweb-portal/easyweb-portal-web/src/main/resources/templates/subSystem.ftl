@@ -297,7 +297,11 @@
 			
 			add_validator = $('#add-form').validate({
 					rules: {
-							 						 					 										'subSystemName' : {
+						'subSystemId' : {
+	 						 					required:true,
+	 						 					maxlength: 50
+					 },	
+						'subSystemName' : {
 	 						 					required:true,
 	 						 					maxlength: 50
 					 },	 				 	 					 										'subSystemDesc' : {
@@ -328,6 +332,7 @@
 			
 			$('#addBtn').on('click', function(){
 			    resetForm($('#add-form'),add_validator);
+			    $('#updId').val('');
 				$('#subSystemId').removeAttr('readonly').val('');
 				
 				$('#add-form-modal').modal2({backdrop:"static",show:true});

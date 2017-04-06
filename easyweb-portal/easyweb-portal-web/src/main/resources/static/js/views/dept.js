@@ -282,6 +282,7 @@ function init() {
 					}
 				},
 				submitHandler : function(form) {
+					alert(111);
 					$('#addstaff-roles').val($('input[name="staffRoleList"]')
 							.values());
 					$.ajaxSubmit(create_staff_url, $(form).serializeArray(),
@@ -301,7 +302,7 @@ function init() {
 					return false;
 				}
 	};
-	if (typeof citys !== 'undefined' && citys.length > 0) {
+	/**if (typeof citys !== 'undefined' && citys.length > 0) {
 		addRule = $.extend(true,addRule,{
 			rules : {
 				'cityId' : {
@@ -309,7 +310,7 @@ function init() {
 				}
 			}
 		});
-	}
+	}**/
 	add_validator = $('#addForm')
 			.validate(addRule);
 	function resetAddForm() {
