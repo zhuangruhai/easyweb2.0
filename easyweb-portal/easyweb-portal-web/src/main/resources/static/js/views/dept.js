@@ -274,6 +274,14 @@ function init() {
 						remote : '用户名已存在'
 						,
 					},
+					'email' : {
+						remote : '邮箱已被注册'
+						,
+					},
+					'mobile' : {
+						remote : '手机号已被注册'
+						,
+					},
 					'sex' : {
 						required : '请选择性别'
 					},

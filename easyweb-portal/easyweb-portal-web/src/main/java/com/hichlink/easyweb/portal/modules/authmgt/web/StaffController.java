@@ -307,69 +307,69 @@ public class StaffController extends BaseController {
 
 	@RequestMapping(value = "/checkStaffLoginName.ajax")
 	@ResponseBody
-	public String checkStaffLoginName(String loginName) {
+	public boolean checkStaffLoginName(String loginName) {
 
 		try {
 			if (isEmpty(loginName)) {
-				return "参数为空";
+				return true;
 			}
 
 			Staff staff = staffService.findStaffByLoginName(loginName);
 
 			if (staff != null) {
-				return "用户名已存在";
+				return false;
 			}
 
 		} catch (Exception e) {
 			logger.error("检查用户名[" + loginName + "]是否存在出错", e);
-			return "发生系统异常";
+			return true;
 		}
 
-		return "true";
+		return true;
 	}
 
 	@RequestMapping(value = "/checkStaffMobile.ajax")
 	@ResponseBody
-	public String checkStaffMobile(String mobile) {
+	public boolean checkStaffMobile(String mobile) {
 		try {
 			if (isEmpty(mobile)) {
-				return "参数为空";
+				return true;
 			}
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put("mobile", mobile);
 			Staff staff = staffService.findStaffByMap(params);
 
 			if (staff != null) {
-				return "手机号码已存在";
+				return false;
 			}
 
 		} catch (Exception e) {
 			logger.error("检查手机号码[" + mobile + "]是否存在出错", e);
-			return "发生系统异常";
+			return false;
 		}
-		return "true";
+		return true;
 	}
 
 	@RequestMapping(value = "/checkStaffEmail.ajax")
 	@ResponseBody
-	public String checkStaffEmail(String email) {
+	public boolean checkStaffEmail(String email) {
 		try {
 			if (isEmpty(email)) {
-				return "参数为空";
+				return true;
 			}
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put("email", email);
 			Staff staff = staffService.findStaffByMap(params);
 
 			if (staff != null) {
-				return "邮箱已存在";
+				return false;
 			}
 
 		} catch (Exception e) {
 			logger.error("检查邮箱[" + email + "]是否存在出错", e);
-			return "发生系统异常";
+			return false;
 		}
-		return "true";
+		return true;
 	}
 
 	@RequestMapping(value = "/findLoginStaff.ajax")
